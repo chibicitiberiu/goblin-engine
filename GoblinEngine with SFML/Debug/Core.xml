@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "Core"
+    </assembly>
+    <members>
+        <member name="M:Goblin.GameGrid.addObject(Goblin.GameObject*)">
+Adds object to the grid. Doesn't check collisions, so be extra careful!!!
+</member>
+        <member name="M:Goblin.GameGrid.canAddObject(Goblin.GameObject*)">
+Checks collisions, and returns true if the object can be added to the grid.
+</member>
+        <member name="M:Goblin.GoblinType.getInstance">
+            <summary>
+Gets a default instance of this type.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.getName">
+            <summary>
+Gets the type name.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.getId">
+            <summary>
+Gets the registered type id.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.Dispose">
+            <summary>
+Finalizes an instance of the <see cref="T:Goblin.GoblinType" /> class.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.#ctor(System.UInt32,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,Goblin.GoblinObject*)">
+            <summary>
+Initializes a new instance of the <see cref="T:Goblin.GoblinType" /> class.
+</summary>
+            <param name="id">The id.</param>
+            <param name="name">The name.</param>
+            <param name="instance">The instance.</param>
+        </member>
+    </members>
+</doc>

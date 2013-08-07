@@ -1,0 +1,23 @@
+﻿Build started 7/27/2013 9:55:05 PM.
+     1>Project "F:\Dev\Goblin\GoblinEngine\WindowManager\WindowManager.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt UiBorder.cpp UiPanel.cpp UiTextBase.cpp UiContainer.cpp UiElement.cpp WindowManager.cpp
+         UiBorder.cpp
+         UiPanel.cpp
+         UiTextBase.cpp
+         UiContainer.cpp
+         UiElement.cpp
+         WindowManager.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"F:\Dev\Goblin\GoblinEngine\Release\GameUI.lib" /NOLOGO /LTCG Release\UiBorder.obj
+         Release\UiPanel.obj
+         Release\UiTextBase.obj
+         Release\UiContainer.obj
+         Release\UiElement.obj
+         Release\WindowManager.obj
+         WindowManager.vcxproj -> F:\Dev\Goblin\GoblinEngine\Release\GameUI.lib
+     1>Done Building Project "F:\Dev\Goblin\GoblinEngine\WindowManager\WindowManager.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.18

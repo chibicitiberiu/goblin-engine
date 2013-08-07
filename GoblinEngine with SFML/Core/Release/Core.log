@@ -1,0 +1,25 @@
+﻿Build started 7/27/2013 9:55:00 PM.
+     1>Project "F:\Dev\Goblin\GoblinEngine\Core\Core.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Color.cpp DebugStream.cpp Image.cpp Rectangle.cpp RenderImage.cpp RenderSurface.cpp Vector.cpp
+         Color.cpp
+         DebugStream.cpp
+         Image.cpp
+         Rectangle.cpp
+         RenderImage.cpp
+         RenderSurface.cpp
+         Vector.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"F:\Dev\Goblin\GoblinEngine\Release\Core.lib" /NOLOGO /LTCG Release\Color.obj
+         Release\DebugStream.obj
+         Release\Image.obj
+         Release\Rectangle.obj
+         Release\RenderImage.obj
+         Release\RenderSurface.obj
+         Release\Vector.obj
+         Core.vcxproj -> F:\Dev\Goblin\GoblinEngine\Release\Core.lib
+     1>Done Building Project "F:\Dev\Goblin\GoblinEngine\Core\Core.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.70
