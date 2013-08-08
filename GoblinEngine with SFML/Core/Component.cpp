@@ -1,11 +1,13 @@
 #include "Component.h"
 
-
-Component::Component(void)
+namespace Goblin
 {
-}
+	Component::Component(void)
+	{
+	}
 
 
-Component::~Component(void)
-{
+	Component::~Component(void)
+	{
+	}
 }

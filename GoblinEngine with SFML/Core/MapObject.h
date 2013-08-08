@@ -2,6 +2,7 @@
 #include "Array2.h"
 #include "GoblinObject.h"
 #include "Serializable.h"
+#include "Component.h"
 #include <vector>
 #include <cstdint>
 

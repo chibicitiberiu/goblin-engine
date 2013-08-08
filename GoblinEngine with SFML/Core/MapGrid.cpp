@@ -68,8 +68,8 @@ namespace Goblin
 		for (size_t y = 0; y < shape->getHeight(); y++)
 			for (size_t x = 0; x < shape->getWidth(); x++)
 			{
-				size_t off_x = x + object->getCellX();
-				size_t off_y = y + object->getCellX();
+				size_t off_x = x /*+ object->getCellX()*/;
+				size_t off_y = y /*+ object->getCellX()*/;
 
 				if (shape->get(x, y) != 0 && this->objects->get(off_x, off_y) != NULL)
 					return false;
@@ -80,7 +80,7 @@ namespace Goblin
 
 	void MapGrid::addObject(MapObject* object)
 	{
-		this->fillObjectShape(object->getShape(), object->getCellX(), object->getCellY(), object);
+		this->fillObjectShape(object->getShape(), 0 /*object->getCellX()*/, 0 /*object->getCellY()*/, object);
 	}
 }
 

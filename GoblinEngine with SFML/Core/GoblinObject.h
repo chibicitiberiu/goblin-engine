@@ -1,12 +1,9 @@
 #pragma once
 
 #include <vector>
-#include "Component.h"
 
 namespace Goblin
 {
-	class GoblinType;
-
 	class GoblinObject
 	{
 	private:

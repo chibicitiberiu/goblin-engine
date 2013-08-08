@@ -1,6 +1,7 @@
 #pragma once
 #include <typeinfo>
 #include <string>
+#include <cstdint>
 
 namespace Goblin
 {

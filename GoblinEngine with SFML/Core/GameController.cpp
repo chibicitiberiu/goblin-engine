@@ -1,11 +1,15 @@
 #include "GameController.h"
 
-
-GameController::GameController(void)
+namespace Goblin
 {
-}
+
+	GameController::GameController(void)
+	{
+	}
 
 
-GameController::~GameController(void)
-{
+	GameController::~GameController(void)
+	{
+	}
+
 }
