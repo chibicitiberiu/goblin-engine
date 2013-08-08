@@ -1,4 +1,5 @@
 #pragma once
+#include "Build.h"
 #include "Array2.h"
 #include "GoblinObject.h"
 #include "Serializable.h"
@@ -7,7 +8,7 @@
 
 namespace Goblin {
 
-	class MapGrid : public GoblinObject, public Serializable
+	class DLLEXPORT MapGrid : public GoblinObject, public Serializable
 	{
 	public:
 

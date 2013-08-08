@@ -11,10 +11,11 @@
 #include "Color.h"
 #include "Image.h"
 #include "Rectangle.h"
+#include "Build.h"
 
 namespace Goblin {
 
-	class RenderSurface {
+	class DLLEXPORT RenderSurface {
 
 	private:
 

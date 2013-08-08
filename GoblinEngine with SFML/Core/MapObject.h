@@ -5,13 +5,14 @@
 #include "Component.h"
 #include <vector>
 #include <cstdint>
+#include "Build.h"
 
 namespace Goblin
 {
-	class MapObject : public GoblinObject, public Serializable
+	class DLLEXPORT MapObject : public GoblinObject, public Serializable
 	{
 	private:
-		std::vector<Component*> components;
+		std::vector<Component*>* components;
 
 	public:
 		MapObject(void);

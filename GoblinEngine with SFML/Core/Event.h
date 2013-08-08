@@ -1,35 +1,36 @@
 #pragma once
+#include "Build.h"
 
-struct JoystickButtonEvent {
+struct DLLEXPORT JoystickButtonEvent {
 };
 
-struct JoystickConnectEvent {
+struct DLLEXPORT JoystickConnectEvent {
 };
 
-struct JoystickMoveEvent {
+struct DLLEXPORT JoystickMoveEvent {
 };
 
-struct KeyEvent {
+struct DLLEXPORT KeyEvent {
 };
 
-struct MouseButtonEvent {
+struct DLLEXPORT MouseButtonEvent {
 };
 
-struct MouseMoveEvent {
+struct DLLEXPORT MouseMoveEvent {
 };
 
-struct MouseWheelEvent {
+struct DLLEXPORT MouseWheelEvent {
 };
 
-struct SizeEvent {
+struct DLLEXPORT SizeEvent {
 	unsigned width, height;
 };
 
-struct TextEvent {
+struct DLLEXPORT TextEvent {
 };
 
 
-struct Event
+struct DLLEXPORT Event
 {
 	enum EventType
 	{

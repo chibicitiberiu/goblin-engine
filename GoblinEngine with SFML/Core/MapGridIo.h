@@ -1,11 +1,12 @@
 #pragma once
 #include <fstream>
 #include <cstdint>
+#include "Build.h"
 
 namespace Goblin
 {
 
-	class MapGridIo
+	class DLLEXPORT MapGridIo
 	{
 	public:
 		enum OpenMode {

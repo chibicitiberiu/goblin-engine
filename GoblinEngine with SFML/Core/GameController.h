@@ -1,9 +1,10 @@
 #pragma once
+#include "Build.h"
 
 namespace Goblin
 {
 
-	class GameController
+	class DLLEXPORT GameController
 	{
 	private:
 

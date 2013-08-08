@@ -1,10 +1,11 @@
 #pragma once
 #include "UiTextBase.h"
+#include "../Core/Build.h"
 
 namespace Goblin
 {
 
-	class UiText :
+	class DLLEXPORT UiText :
 		public UiTextBase
 	{
 	public:

@@ -1,10 +1,11 @@
 #pragma once
 
 #include <vector>
+#include "Build.h"
 
 namespace Goblin
 {
-	class GoblinObject
+	class DLLEXPORT GoblinObject
 	{
 	private:
 		const void* owner;

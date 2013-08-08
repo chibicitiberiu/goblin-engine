@@ -1,39 +1,40 @@
 #pragma once
 #include "UiElement.h"
+#include "../Core/Build.h"
 #include <vector>
 
 namespace Goblin {
 
-class UiContainer: public UiElement {
+	class DLLEXPORT UiContainer: public UiElement {
 
-public:
-	typedef std::vector<UiElement*> ChildrenVector;
-	typedef ChildrenVector::iterator ChildrenIterator;
+	public:
+		typedef std::vector<UiElement*> ChildrenVector;
+		typedef ChildrenVector::iterator ChildrenIterator;
 
-private:
-	ChildrenVector children;
+	private:
+		ChildrenVector children;
 
-public:
-	UiContainer();
-	virtual ~UiContainer();
+	public:
+		UiContainer();
+		virtual ~UiContainer();
 
-	// Children getters
-	virtual ChildrenIterator childrenBegin();
-	virtual ChildrenIterator childrenEnd();
-	virtual size_t childrenCount();
-	virtual UiElement* child(size_t index);
+		// Children getters
+		virtual ChildrenIterator childrenBegin();
+		virtual ChildrenIterator childrenEnd();
+		virtual size_t childrenCount();
+		virtual UiElement* child(size_t index);
 
-	// Children modifiers
-	virtual void addChild(UiElement* el);
-	virtual void removeChild(ChildrenIterator it);
-	virtual void removeChild(size_t index);
+		// Children modifiers
+		virtual void addChild(UiElement* el);
+		virtual void removeChild(ChildrenIterator it);
+		virtual void removeChild(size_t index);
 
-protected:
+	protected:
 
-	// Events
-	virtual void onLayoutChanged();
-	virtual void onAppearanceChanged();
-	virtual void onEnabledChanged();
-};
+		// Events
+		virtual void onLayoutChanged();
+		virtual void onAppearanceChanged();
+		virtual void onEnabledChanged();
+	};
 
 }  // namespace Goblin

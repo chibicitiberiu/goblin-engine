@@ -9,11 +9,12 @@
 #define COLOR_H_
 
 #include <stdint.h>
+#include "Build.h"
 #include "Vector.h"
 
 namespace Goblin {
 
-class Color{
+class DLLEXPORT Color {
 
 protected:
 
@@ -33,8 +34,15 @@ public:
 	float R, G, B, A;
 
 	// Integer versions
-	int getR() const, getG() const, getB() const, getA() const;
-	void setR(int value), setG(int value), setB(int value), setA(int value);
+	int getR() const;
+	int getG() const;
+	int getB() const;
+	int getA() const;
+	
+	void setR(int value);
+	void setG(int value);
+	void setB(int value);
+	void setA(int value);
 
 	uint32_t getARGB() const;
 	void setARGB (uint32_t value);

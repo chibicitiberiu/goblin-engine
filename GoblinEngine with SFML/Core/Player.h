@@ -2,12 +2,13 @@
 
 #include "GoblinObject.h"
 #include <SFML\Graphics.hpp>
+#include "Build.h"
 
 using Color = sf::Color;
 
 namespace Goblin
 {
-	class Player : public GoblinObject
+	class DLLEXPORT Player : public GoblinObject
 	{
 	public:
 

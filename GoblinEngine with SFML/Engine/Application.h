@@ -3,44 +3,45 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "../Core/Build.h"
 
 namespace Goblin {
 
-class Application {
+	class DLLEXPORT Application {
 
-private:
+	private:
 
-	sf::RenderWindow mainWindow;
+		sf::RenderWindow mainWindow;
 
-	sf::Font font;
+		sf::Font font;
 
-	float fps;
+		float fps;
 
-protected:
+	protected:
 
-	volatile bool stop_flag;
+		volatile bool stop_flag;
 
-	// Main application parts
-	virtual bool initialize();
-	virtual void onMainWindowEvent(sf::Event&);
-	virtual void onStart();
-	virtual void onLogicUpdate(sf::Time&);
-	virtual void onRender(sf::Time&);
-	virtual void dispose();
+		// Main application parts
+		virtual bool initialize();
+		virtual void onMainWindowEvent(sf::Event&);
+		virtual void onStart();
+		virtual void onLogicUpdate(sf::Time&);
+		virtual void onRender(sf::Time&);
+		virtual void dispose();
 
-	// Events
-	virtual void onKeyDown(sf::Event&);
-	virtual void onResized(sf::Event&);
+		// Events
+		virtual void onKeyDown(sf::Event&);
+		virtual void onResized(sf::Event&);
 
-private:
+	private:
 
-public:
-	Application();
+	public:
+		Application();
 
-	virtual int main();
-	virtual void stop();
+		virtual int main();
+		virtual void stop();
 
-	virtual ~Application() { }
-};
+		virtual ~Application() { }
+	};
 
 }

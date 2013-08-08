@@ -1,9 +1,10 @@
 #pragma once
 #include "UiElement.h"
+#include "../Core/Build.h"
 
 namespace Goblin {
 
-	class UiTextBase: public Goblin::UiElement {
+	class DLLEXPORT UiTextBase: public Goblin::UiElement {
 
 	private:
 		sf::Font font;

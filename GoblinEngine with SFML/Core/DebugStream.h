@@ -1,25 +1,26 @@
 #pragma once
 #include <sstream>
 #include <Windows.h>
+#include "Build.h"
 
 namespace Goblin {
 
-class DebugStream
-{
-public:
-
-	template <typename T>
-	DebugStream& operator<< (const T& t)
+	class DLLEXPORT DebugStream
 	{
-		std::stringstream str;
-		str<<t;
+	public:
 
-		OutputDebugStringA(str.str().c_str());
-		return *this;
-	}
+		template <typename T>
+		DebugStream& operator<< (const T& t)
+		{
+			std::stringstream str;
+			str<<t;
 
-};
+			OutputDebugStringA(str.str().c_str());
+			return *this;
+		}
 
-extern DebugStream debug;
+	};
+
+	extern DLLEXPORT DebugStream debug;
 
 }

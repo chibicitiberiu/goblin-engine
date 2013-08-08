@@ -10,10 +10,11 @@
 
 #include "Image.h"
 #include "RenderSurface.h"
+#include "Build.h"
 
 namespace Goblin {
 
-	class RenderImage: public Image, public RenderSurface {
+	class DLLEXPORT RenderImage: public Image, public RenderSurface {
 
 	protected:
 		void blend(size_t x, size_t y, const Color& c);

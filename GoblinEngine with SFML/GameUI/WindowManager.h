@@ -2,24 +2,25 @@
 #include <set>
 #include <SFML\Graphics.hpp>
 #include "UiPanel.h"
+#include "../Core/Build.h"
 
 namespace Goblin {
 
-class WindowManager {
+	class DLLEXPORT WindowManager {
 
-protected:
-	UiPanel root;
-	sf::Texture texture;
-	int dpi;
+	protected:
+		UiPanel root;
+		sf::Texture texture;
+		int dpi;
 
-public:
+	public:
 
-	WindowManager();
-	virtual ~WindowManager();
+		WindowManager();
+		virtual ~WindowManager();
 
-	virtual bool handleEvent(const sf::Event& e);
-	virtual void render(sf::RenderTarget& target);
-	virtual UiPanel& getRoot();
-};
+		virtual bool handleEvent(const sf::Event& e);
+		virtual void render(sf::RenderTarget& target);
+		virtual UiPanel& getRoot();
+	};
 
 }  // namespace Glass

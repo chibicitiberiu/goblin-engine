@@ -13,6 +13,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoblinGame", "GoblinGame\GoblinGame.vcxproj", "{F466AA02-C6B9-4F7D-A76E-F62218F20224}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{5F6B3BAD-FC4A-4726-8F12-76081001FEE0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F} = {F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}
+		{B6BF89C7-1E89-4163-BACA-846E07F64E17} = {B6BF89C7-1E89-4163-BACA-846E07F64E17}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
