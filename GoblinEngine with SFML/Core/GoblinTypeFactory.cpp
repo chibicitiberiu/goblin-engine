@@ -10,9 +10,9 @@ namespace Goblin
 	GoblinTypeFactory::GoblinTypeFactory(void)
 		: next_id(0)
 	{
+		this->types = new std::vector<GoblinType>();
 		this->registerDefaultTypes();
 		this->registerTypes();
-
 	}
 
 	/// <summary>
@@ -20,6 +20,8 @@ namespace Goblin
 	/// </summary>
 	GoblinTypeFactory::~GoblinTypeFactory(void)
 	{
+		if (this->types != NULL)
+			delete this->types;
 	}
 	
 	/// <summary>
@@ -28,9 +30,10 @@ namespace Goblin
 	/// <param name="instance">An object instance.</param>
 	void GoblinTypeFactory::registerType(GoblinObject* instance)
 	{
+		assert(this->types != NULL);
 		assert(instance != NULL);
 
-		this->types.push_back(GoblinType(next_id++, typeid(*instance), instance));
+		this->types->push_back(GoblinType(next_id++, typeid(*instance), instance));
 	}
 
 	/// <summary>
@@ -56,8 +59,8 @@ namespace Goblin
 	/// <returns>The type identifier, -1 if not found.</returns>
 	const size_t GoblinTypeFactory::getTypeId(const GoblinObject* obj)
 	{
-		for (size_t i = 0; i < types.size(); i++)
-			if (typeid(obj) == types[i].getInfo())
+		for (size_t i = 0; i < types->size(); i++)
+			if (typeid(obj) == types->at(i).getInfo())
 				return i;
 
 		return (size_t)-1;
@@ -68,10 +71,10 @@ namespace Goblin
 	/// <returns>The new instance of specified type, or NULL if type not found.</returns>
 	GoblinObject* GoblinTypeFactory::createInstance(const type_info& type)
 	{		
-		for (size_t i = 0; i < types.size(); i++)
-			if (type == types[i].getInfo())
+		for (size_t i = 0; i < types->size(); i++)
+			if (type == types->at(i).getInfo())
 			{
-				return types[i].getInstance()->clone();
+				return types->at(i).getInstance()->clone();
 			}
 
 		return NULL;
@@ -82,10 +85,10 @@ namespace Goblin
 	/// <returns>The new instance of specified type, or NULL if type not found.</returns>
 	GoblinObject* GoblinTypeFactory::createInstance(size_t type_id)
 	{
-		if (type_id >= this->types.size())
+		if (type_id >= this->types->size())
 			return NULL;
 
-		return types[type_id].getInstance()->clone();
+		return types->at(type_id).getInstance()->clone();
 	}
 
 }

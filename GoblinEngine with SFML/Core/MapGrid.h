@@ -2,21 +2,18 @@
 #include "Build.h"
 #include "Array2.h"
 #include "GoblinObject.h"
-#include "Serializable.h"
+#include "ISerializable.h"
 #include "MapObject.h"
 #include <vector>
 
 namespace Goblin {
 
-	class DLLEXPORT MapGrid : public GoblinObject, public Serializable
+	class DLLEXPORT MapGrid : public GoblinObject /*, public ISerializable */
 	{
-	public:
-
-		typedef int TerrainType;
 
 	private:
 		
-		Array2<TerrainType>* terrain;	
+		Array2<int>* terrain;	
 		Array2<MapObject*>* objects;
 		Array2<int>* heightMap;
 
@@ -39,7 +36,7 @@ namespace Goblin {
 		/// Adds object to the grid. Doesn't check collisions, so be extra careful!!!
 		void addObject(MapObject* object);
 
-		virtual ~MapGrid(void);
+		virtual ~MapGrid();
 	};
 
 }

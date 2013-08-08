@@ -1,6 +1,5 @@
 #pragma once
 #include "UiContainer.h"
-#include "../Core/RenderImage.h"
 #include "../Core/Build.h"
 #include <map>
 

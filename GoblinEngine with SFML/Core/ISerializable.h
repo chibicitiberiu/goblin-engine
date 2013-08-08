@@ -2,11 +2,12 @@
 #include <typeinfo>
 #include <string>
 #include <cstdint>
+#include "Build.h"
 
 namespace Goblin
 {
 
-	class Serializable
+	class DLLEXPORT ISerializable
 	{
 	public:
 

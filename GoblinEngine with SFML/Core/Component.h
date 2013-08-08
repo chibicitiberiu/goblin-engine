@@ -1,12 +1,12 @@
 #pragma once
 
 #include "GoblinObject.h"
-#include "Serializable.h"
+#include "ISerializable.h"
 
 namespace Goblin
 {
 
-	class Component : public GoblinObject, public Serializable
+	class DLLEXPORT Component : public GoblinObject, public ISerializable
 	{
 	public:
 		Component(void);

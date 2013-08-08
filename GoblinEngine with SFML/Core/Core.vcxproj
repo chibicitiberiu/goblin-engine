@@ -14,41 +14,28 @@
     <ClInclude Include="Array2.h" />
     <ClInclude Include="Build.h" />
     <ClInclude Include="Clamp.h" />
-    <ClInclude Include="Color.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DebugStream.h" />
-    <ClInclude Include="Event.h" />
-    <ClInclude Include="GameController.h" />
+    <ClInclude Include="IMapProvider.h" />
     <ClInclude Include="MapGrid.h" />
     <ClInclude Include="MapGridIo.h" />
     <ClInclude Include="MapObject.h" />
     <ClInclude Include="GoblinObject.h" />
     <ClInclude Include="GoblinType.h" />
     <ClInclude Include="GoblinTypeFactory.h" />
-    <ClInclude Include="Image.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="RenderImage.h" />
-    <ClInclude Include="RenderSurface.h" />
-    <ClInclude Include="Serializable.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="ISerializable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DebugStream.cpp" />
-    <ClCompile Include="GameController.cpp" />
     <ClCompile Include="MapGrid.cpp" />
     <ClCompile Include="MapGridIo.cpp" />
     <ClCompile Include="MapObject.cpp" />
     <ClCompile Include="GoblinObject.cpp" />
     <ClCompile Include="GoblinType.cpp" />
     <ClCompile Include="GoblinTypeFactory.cpp" />
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="RenderImage.cpp" />
-    <ClCompile Include="RenderSurface.cpp" />
-    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B6BF89C7-1E89-4163-BACA-846E07F64E17}</ProjectGuid>

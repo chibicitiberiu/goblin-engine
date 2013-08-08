@@ -6,7 +6,7 @@
 namespace Goblin
 {
 
-	class GoblinType
+	class DLLEXPORT GoblinType
 	{
 
 	private:

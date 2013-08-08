@@ -6,7 +6,7 @@ namespace Goblin
 		: terrain(NULL), objects(NULL), gridCellWidth(1.0f), gridCellHeight(1.0f)
 	{
 		// Create terrain
-		this->terrain = new Array2<TerrainType>(width, height);
+		this->terrain = new Array2<int>(width, height);
 
 		// Create object array
 		this->objects = new Array2<MapObject*>(width, height);

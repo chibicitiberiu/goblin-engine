@@ -5,10 +5,10 @@
 namespace Goblin
 {
 
-	class GoblinTypeFactory
+	class DLLEXPORT GoblinTypeFactory
 	{
 	private:
-		std::vector<GoblinType> types;
+		std::vector<GoblinType>* types;
 		size_t next_id;
 		void registerDefaultTypes();
 

@@ -20,7 +20,7 @@ namespace Goblin
 	bool Application::initialize()
 	{
 		// Load window
-		this->mainWindow.create(sf::VideoMode(100, 100), "Hello world!");
+		this->mainWindow.create(sf::VideoMode(100, 100), "Goblin engine");
 		this->mainWindow.setSize(sf::Vector2u(640, 480));
 		return true;
 	}

@@ -11,10 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Core\GameController.h" />
     <ClInclude Include="Application.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Core\GameController.cpp" />
     <ClCompile Include="Application.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.vcxproj">
+      <Project>{b6bf89c7-1e89-4163-baca-846e07f64e17}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameUI\GameUI.vcxproj">
+      <Project>{f60ccec3-dfa5-4ab7-985c-fe4329508c0f}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5F6B3BAD-FC4A-4726-8F12-76081001FEE0}</ProjectGuid>
