@@ -13,12 +13,17 @@ namespace Goblin
 
 	void ConsoleWindow::submitPressed()
 	{
-		this->addText("] " + entryText->GetText() + "\n");
-		entryText->SetText("");
+		if (!entryText->GetText().isEmpty())
+		{
+			this->addText("] " + entryText->GetText() + "\n");
+			entryText->SetText("");
+		}
 	}
 
 	void ConsoleWindow::keyPressed()
 	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+			submitPressed();
 	}
 
 	void ConsoleWindow::setUp()
