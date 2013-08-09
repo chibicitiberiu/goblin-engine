@@ -13,10 +13,18 @@
   <ItemGroup>
     <ClInclude Include="..\Core\GameController.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="ConsoleWindow.h" />
+    <ClInclude Include="DebugHandlers.h" />
+    <ClInclude Include="GuiController.h" />
+    <ClInclude Include="LoadingWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Core\GameController.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="ConsoleWindow.cpp" />
+    <ClCompile Include="DebugHandlers.cpp" />
+    <ClCompile Include="GuiController.cpp" />
+    <ClCompile Include="LoadingWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.vcxproj">

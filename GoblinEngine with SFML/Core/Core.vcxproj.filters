@@ -75,6 +75,9 @@
     <ClInclude Include="ISerializable.h">
       <Filter>Header Files\GoblinType</Filter>
     </ClInclude>
+    <ClInclude Include="IDebugHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DebugStream.cpp">

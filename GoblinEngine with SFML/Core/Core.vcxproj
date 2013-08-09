@@ -16,6 +16,7 @@
     <ClInclude Include="Clamp.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DebugStream.h" />
+    <ClInclude Include="IDebugHandler.h" />
     <ClInclude Include="IMapProvider.h" />
     <ClInclude Include="MapGrid.h" />
     <ClInclude Include="MapGridIo.h" />

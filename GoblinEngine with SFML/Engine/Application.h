@@ -2,10 +2,10 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include <SFGUI/SFGUI.hpp>
 
 #include <vector>
 #include "../Core/Build.h"
+#include "GuiController.h"
 
 namespace Goblin {
 
@@ -14,14 +14,7 @@ namespace Goblin {
 	private:
 
 		sf::RenderWindow mainWindow;
-		sfg::SFGUI sfgui;
-		sfg::Desktop sfdesktop;
-		sfg::Window::Ptr sfwindow;
-		sfg::Button::Ptr lebutton;
-		sfg::Label::Ptr lelabel;
-		sfg::Box::Ptr boxlayout;
-
-		void onButtonClicked();
+		GuiController gui;
 
 		float fps;
 
