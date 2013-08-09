@@ -19,10 +19,35 @@ namespace Goblin
 	 ***********************************/
 	bool Application::initialize()
 	{
-		// Load window
+		// Create window
 		this->mainWindow.create(sf::VideoMode(100, 100), "Goblin engine");
 		this->mainWindow.setSize(sf::Vector2u(640, 480));
+
+		// Create GUI
+		this->lelabel = sfg::Label::Create("Hello world from the label!");
+
+		this->lebutton = sfg::Button::Create("Hello world!");
+		this->lebutton->GetSignal(sfg::Button::OnLeftClick).Connect(&Application::onButtonClicked, this);
+		
+		this->boxlayout = sfg::Box::Create();
+		this->boxlayout->Pack(this->lelabel);
+		this->boxlayout->Pack(this->lebutton);
+
+		this->sfwindow = sfg::Window::Create();
+		this->sfwindow->SetTitle("Hello window");
+		this->sfwindow->Add(this->boxlayout);
+
+		this->sfdesktop.Add(this->sfwindow);
+		
+		// Prepare for rendering
+		this->mainWindow.resetGLStates();
+
 		return true;
+	}
+
+	void Application::onButtonClicked()
+	{
+		this->lebutton->SetLabel("You licked me!");
 	}
 
 	void Application::onStart()
@@ -84,6 +109,8 @@ namespace Goblin
 	 ***********************************/
 	void Application::onMainWindowEvent(sf::Event& e)
 	{
+		this->sfdesktop.HandleEvent(e);
+
 		switch (e.type)
 		{
 			case sf::Event::Closed :
@@ -133,7 +160,8 @@ namespace Goblin
 	void Application::onRender(sf::Time& elapsed)
 	{
 		mainWindow.clear(sf::Color::Black);
-
+		
+		sfgui.Display(mainWindow);
 
 		mainWindow.display();
 	}
@@ -143,6 +171,8 @@ namespace Goblin
 	 ***********************************/
 	void Application::onLogicUpdate(sf::Time& elapsed)
 	{
+		this->sfdesktop.Update(elapsed.asSeconds());
+
 		this->fps = (this->fps + (1.0f / elapsed.asSeconds()) ) / 2.0f;
 	}
 

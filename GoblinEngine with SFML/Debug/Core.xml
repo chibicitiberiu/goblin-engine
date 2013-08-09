@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "Core"
+    </assembly>
+    <members>
+        <member name="M:Goblin.GoblinTypeFactory.createInstance(System.UInt32)">
+            <summary>Creates an instance of specified type.</summary>
+            <param name="type_id">Identifier for the type.</param>
+            <returns>The new instance of specified type, or NULL if type not found.</returns>
+        </member>
+        <member name="M:Goblin.GoblinTypeFactory.createInstance(type_info!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>Creates an instance of specified type.</summary>
+            <param name="type">The type.</param>
+            <returns>The new instance of specified type, or NULL if type not found.</returns>
+        </member>
+        <member name="M:Goblin.GoblinTypeFactory.getTypeId(Goblin.GoblinObject!System.Runtime.CompilerServices.IsConst*)">
+            <summary>Gets type identifier.</summary>
+            <param name="obj">An object.</param>
+            <returns>The type identifier, -1 if not found.</returns>
+        </member>
+        <member name="M:Goblin.GoblinTypeFactory.registerTypes">
+            <summary>
+Registers all the types derived from <see cref="T:Goblin.GoblinObject" />,
+should be overriden by any project which uses the Goblin engine,
+and derives from GoblinObject.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinTypeFactory.registerDefaultTypes">
+            <summary>
+Registers all the types derived from <see cref="T:Goblin.GoblinObject" /> which
+are implemented in the Goblin engine.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinTypeFactory.registerType(Goblin.GoblinObject*)">
+            <summary>
+Registers a type derived from <see cref="T:Goblin.GoblinObject" />.
+</summary>
+            <param name="instance">An object instance.</param>
+        </member>
+        <member name="M:Goblin.GoblinTypeFactory.Dispose">
+            <summary>
+Finalizes an instance of the <see cref="T:Goblin.GoblinTypeFactory" /> class.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinTypeFactory.#ctor">
+            <summary>
+Initializes a new instance of the <see cref="T:Goblin.GoblinTypeFactory" /> class.
+</summary>
+        </member>
+        <member name="M:Goblin.MapGrid.addObject(Goblin.MapObject*)">
+Adds object to the grid. Doesn't check collisions, so be extra careful!!!
+</member>
+        <member name="M:Goblin.MapGrid.canAddObject(Goblin.MapObject*)">
+Checks collisions, and returns true if the object can be added to the grid.
+</member>
+        <member name="M:Goblin.ISerializable.deserialize(std.vector&lt;System.Byte&gt;)">
+            <summary>Deserializes the given data in the current instance of this object.</summary>
+            <param name="data">The serialized bytes.</param>
+        </member>
+        <member name="M:Goblin.ISerializable.serialize(std.vector&lt;System.Byte&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>Serializes the current instance of this object.</summary>
+            <param name="data">[out] The serialized bytes.</param>
+        </member>
+        <member name="M:Goblin.GoblinType.getInstance">
+            <summary>
+Gets a default instance of this type.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.getInfo">
+            <summary>
+Gets the type info.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.getId">
+            <summary>
+Gets the registered type id.
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.Dispose">
+            <summary>
+Destructor
+</summary>
+        </member>
+        <member name="M:Goblin.GoblinType.#ctor(System.UInt32,type_info!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,Goblin.GoblinObject*)">
+            <summary>
+Constructor
+</summary>
+            <param name="id">The type id.</param>
+            <param name="info">The typeid information of the type.</param>
+            <param name="instance">An instance of type.</param>
+        </member>
+    </members>
+</doc>

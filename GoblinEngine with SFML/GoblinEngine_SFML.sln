@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{B6BF89C7-1E89-4163-BACA-846E07F64E17}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameUI", "GameUI\GameUI.vcxproj", "{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{254AF504-FB1D-4B32-ABC1-892834DEC4A8}"
 	ProjectSection(SolutionItems) = preProject
 		tasks.xml = tasks.xml
@@ -14,7 +12,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoblinGame", "GoblinGame\Go
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{5F6B3BAD-FC4A-4726-8F12-76081001FEE0}"
 	ProjectSection(ProjectDependencies) = postProject
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F} = {F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}
 		{B6BF89C7-1E89-4163-BACA-846E07F64E17} = {B6BF89C7-1E89-4163-BACA-846E07F64E17}
 	EndProjectSection
 EndProject
@@ -40,18 +37,6 @@ Global
 		{B6BF89C7-1E89-4163-BACA-846E07F64E17}.Release Singlethreaded|Win32.Build.0 = Release|Win32
 		{B6BF89C7-1E89-4163-BACA-846E07F64E17}.Release|Win32.ActiveCfg = Release|Win32
 		{B6BF89C7-1E89-4163-BACA-846E07F64E17}.Release|Win32.Build.0 = Release|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Debug Multithreaded|Win32.ActiveCfg = Debug|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Debug Multithreaded|Win32.Build.0 = Debug|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Debug Singlethreaded|Win32.ActiveCfg = Debug|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Debug Singlethreaded|Win32.Build.0 = Debug|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Debug|Win32.ActiveCfg = Debug|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Debug|Win32.Build.0 = Debug|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Release Multithreaded|Win32.ActiveCfg = Release|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Release Multithreaded|Win32.Build.0 = Release|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Release Singlethreaded|Win32.ActiveCfg = Release|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Release Singlethreaded|Win32.Build.0 = Release|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Release|Win32.ActiveCfg = Release|Win32
-		{F60CCEC3-DFA5-4AB7-985C-FE4329508C0F}.Release|Win32.Build.0 = Release|Win32
 		{F466AA02-C6B9-4F7D-A76E-F62218F20224}.Debug Multithreaded|Win32.ActiveCfg = Debug|Win32
 		{F466AA02-C6B9-4F7D-A76E-F62218F20224}.Debug Multithreaded|Win32.Build.0 = Debug|Win32
 		{F466AA02-C6B9-4F7D-A76E-F62218F20224}.Debug Singlethreaded|Win32.ActiveCfg = Debug|Win32
