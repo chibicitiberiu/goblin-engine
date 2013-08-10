@@ -2,6 +2,8 @@
 #include <SFGUI/SFGUI.hpp>
 #include "ConsoleWindow.h"
 #include "LoadingWindow.h"
+#include "SettingsWindow.h"
+#include "VideoSettingsPage.h"
 #include "../Core/Build.h"
 
 namespace Goblin
@@ -11,8 +13,10 @@ namespace Goblin
 	private:
 		sfg::SFGUI sfgui;
 		sfg::Desktop desktop;
-		ConsoleWindow console;
+		GUI::ConsoleWindow console;
 		LoadingWindow loading;
+		SettingsWindow settings;
+		VideoSettingsPage videoSettingsPage;
 
 	public:
 		GuiController();
@@ -24,7 +28,7 @@ namespace Goblin
 		virtual void onRender(sf::RenderTarget& target, const sf::Time& elapsed);
 		virtual void onLogicUpdate(const sf::Time& elapsed);
 
-		ConsoleWindow* getConsoleWindow();
+		GUI::ConsoleWindow* getConsoleWindow();
 	};
 
 }

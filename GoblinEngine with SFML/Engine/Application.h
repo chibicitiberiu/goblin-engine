@@ -4,8 +4,9 @@
 #include <SFML/Graphics.hpp>
 
 #include <vector>
-#include "../Core/Build.h"
+
 #include "GuiController.h"
+#include "GameController.h"
 
 namespace Goblin {
 
@@ -15,6 +16,7 @@ namespace Goblin {
 
 		sf::RenderWindow mainWindow;
 		GuiController gui;
+		GameController game;
 
 		float fps;
 

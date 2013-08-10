@@ -1,37 +1,36 @@
 #pragma once
-#include <SFGUI/SFGUI.hpp>
-#include "../Core/Build.h"
+#include "Window.h"
 
 namespace Goblin
 {
-	class DLLEXPORT ConsoleWindow
+	namespace GUI
 	{
-	private:
+
+		class DLLEXPORT ConsoleWindow : public Window
+		{
+		private:
 		
-		sfg::Window::Ptr window;
-		sfg::Box::Ptr layout;
-		sfg::Box::Ptr entryAreaLayout;
-		sfg::ScrolledWindow::Ptr scrollArea;
-		sfg::Label::Ptr text;
-		sfg::Entry::Ptr entryText;
-		sfg::Button::Ptr entryButton;
+			sfg::Box::Ptr layout;
+			sfg::Box::Ptr entryAreaLayout;
+			sfg::ScrolledWindow::Ptr scrollArea;
+			sfg::Label::Ptr text;
+			sfg::Entry::Ptr entryText;
+			sfg::Button::Ptr entryButton;
 
-		void setUp();
+			void setUp();
 
-	private:
-		void submitPressed();
-		void keyPressed();
+		private:
+			void submitPressed();
+			void keyPressed();
 
-	public:
-		ConsoleWindow();
-		~ConsoleWindow();
+		public:
+			ConsoleWindow();
+			~ConsoleWindow();
 
-		sfg::Window::Ptr getWindowPtr();
-		void addText(sf::String txt);
+			void addText(sf::String txt);
 
-		bool isVisible();
-		void setVisible(bool value);
-		void resize(float x, float y);
-	};
+			void resize(float x, float y);
+		};
 
+	}
 }

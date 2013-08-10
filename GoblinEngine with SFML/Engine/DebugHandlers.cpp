@@ -13,7 +13,7 @@ namespace Goblin
 		printf(info.c_str());
 	}
 
-	ConsoleDebugHandler::ConsoleDebugHandler(ConsoleWindow* wind)
+	ConsoleDebugHandler::ConsoleDebugHandler(GUI::ConsoleWindow* wind)
 		: window(wind)
 	{
 		assert(wind != NULL);

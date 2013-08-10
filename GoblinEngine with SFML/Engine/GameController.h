@@ -1,5 +1,5 @@
 #pragma once
-#include "Build.h"
+#include "../Core/Build.h"
 #include "../Core/Player.h"
 #include "../Core/MapGrid.h"
 #include "../Core/IMapProvider.h"

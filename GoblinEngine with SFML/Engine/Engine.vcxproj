@@ -11,20 +11,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Core\GameController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="DebugHandlers.h" />
+    <ClInclude Include="GameController.h" />
+    <ClInclude Include="GameWindow.h" />
     <ClInclude Include="GuiController.h" />
     <ClInclude Include="LoadingWindow.h" />
+    <ClInclude Include="SettingsWindow.h" />
+    <ClInclude Include="VideoSettingsPage.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Core\GameController.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="ConsoleWindow.cpp" />
     <ClCompile Include="DebugHandlers.cpp" />
+    <ClCompile Include="GameController.cpp" />
+    <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="GuiController.cpp" />
     <ClCompile Include="LoadingWindow.cpp" />
+    <ClCompile Include="SettingsWindow.cpp" />
+    <ClCompile Include="VideoSettingsPage.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.vcxproj">

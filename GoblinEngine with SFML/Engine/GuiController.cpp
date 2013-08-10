@@ -7,6 +7,9 @@ namespace Goblin
 	{
 		desktop.Add(this->console.getWindowPtr());
 		desktop.Add(this->loading.getWindowPtr());
+		desktop.Add(this->settings.getWindowPtr());
+
+		this->settings.addCategory(this->videoSettingsPage.getMainWidget(), this->videoSettingsPage.getTitleWidget());
 	}
 
 
@@ -24,7 +27,10 @@ namespace Goblin
 		switch(e.key.code)
 		{
 			case sf::Keyboard::Tilde:
-				console.setVisible(!console.isVisible());
+				if (console.isClosed())
+					console.show();
+				else
+					console.close();
 				break;
 
 			default:
@@ -54,7 +60,7 @@ namespace Goblin
 		desktop.Update(elapsed.asSeconds());
 	}
 
-	ConsoleWindow* GuiController::getConsoleWindow()
+	GUI::ConsoleWindow* GuiController::getConsoleWindow()
 	{
 		return &this->console;
 	}

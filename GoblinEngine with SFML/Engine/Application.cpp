@@ -33,8 +33,6 @@ namespace Goblin
 		// Prepare for rendering
 		this->mainWindow.resetGLStates();
 
-		debug<<"Initialization done. Ready to roll!\n";
-
 		return true;
 	}
 
