@@ -13,8 +13,8 @@ namespace Goblin
 	private:
 		sfg::SFGUI sfgui;
 		sfg::Desktop desktop;
-		GUI::ConsoleWindow console;
-		LoadingWindow loading;
+		Gui::ConsoleWindow console;
+		Gui::LoadingWindow loading;
 		SettingsWindow settings;
 		VideoSettingsPage videoSettingsPage;
 
@@ -28,7 +28,6 @@ namespace Goblin
 		virtual void onRender(sf::RenderTarget& target, const sf::Time& elapsed);
 		virtual void onLogicUpdate(const sf::Time& elapsed);
 
-		GUI::ConsoleWindow* getConsoleWindow();
+		Gui::ConsoleWindow* getConsoleWindow();
 	};
-
 }

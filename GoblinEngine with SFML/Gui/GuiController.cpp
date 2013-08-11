@@ -10,6 +10,7 @@ namespace Goblin
 		desktop.Add(this->settings.getWindowPtr());
 
 		this->settings.addCategory(this->videoSettingsPage.getMainWidget(), this->videoSettingsPage.getTitleWidget());
+		this->loading.show();
 	}
 
 
@@ -33,6 +34,14 @@ namespace Goblin
 					console.close();
 				break;
 
+			case sf::Keyboard::A:
+				this->loading.setProgress(this->loading.getProgress() + 0.01f);
+				break;
+
+			case sf::Keyboard::S:
+				this->loading.setProgress(this->loading.getProgress() - 0.01f);
+				break;
+
 			default:
 				break;
 		}
@@ -40,7 +49,7 @@ namespace Goblin
 
 	void GuiController::onResized(sf::Event& e)
 	{
-		console.resize(static_cast<float>(e.size.width), 200);
+		console.setSize(static_cast<float>(e.size.width), 200);
 	}
 
 	void GuiController::onRender(sf::RenderTarget& target, const sf::Time& elapsed)
@@ -60,7 +69,7 @@ namespace Goblin
 		desktop.Update(elapsed.asSeconds());
 	}
 
-	GUI::ConsoleWindow* GuiController::getConsoleWindow()
+	Gui::ConsoleWindow* GuiController::getConsoleWindow()
 	{
 		return &this->console;
 	}

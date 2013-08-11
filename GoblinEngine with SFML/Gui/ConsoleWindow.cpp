@@ -2,7 +2,7 @@
 
 namespace Goblin
 {
-	namespace GUI
+	namespace Gui
 	{
 		ConsoleWindow::ConsoleWindow()
 			: Window()
@@ -70,11 +70,6 @@ namespace Goblin
 			text->SetText(text->GetText() + txt);
 			auto vp = scrollArea->GetVerticalAdjustment();
 			vp->SetValue(vp->GetUpper());
-		}
-
-		void ConsoleWindow::resize(float x, float y)
-		{
-			this->getWindowPtr()->SetAllocation(sf::FloatRect(0, 0, x, y));
 		}
 
 	}

@@ -1,27 +1,35 @@
 #pragma once
 #include <SFGUI/SFGUI.hpp>
-#include "../Core/Build.h"
+#include "Window.h"
 
 namespace Goblin
 {
-	class DLLEXPORT LoadingWindow
+	namespace Gui
 	{
-	private:
+		class DLLEXPORT LoadingWindow : public Window
+		{
+		private:
 
-		sfg::Window::Ptr window;
-		sfg::Box::Ptr layout;
-		sfg::Box::Ptr progressLayout;
-		sfg::Label::Ptr message;
-		sfg::ProgressBar::Ptr progressBar;
-		sfg::Button::Ptr cancelButton;
+			sfg::Box::Ptr layout;
+			sfg::Box::Ptr progressLayout;
+			sfg::Label::Ptr message;
+			sfg::ProgressBar::Ptr progressBar;
+			sfg::Button::Ptr cancelButton;
 
-		void setUp();
-		void cancelClicked();
+			void setUp();
+			void cancelClicked();
 
-	public:
-		LoadingWindow(void);
-		virtual ~LoadingWindow(void);
+		public:
+			LoadingWindow(void);
+			virtual ~LoadingWindow(void);
 
-		sfg::Window::Ptr getWindowPtr();
-	};
+			// Setters
+			virtual void setProgress(float percent);
+			virtual void setMessage(const sf::String& value);
+
+			// Getters
+			virtual float getProgress() const;
+			virtual sf::String getMessage() const;
+		};
+	}
 }

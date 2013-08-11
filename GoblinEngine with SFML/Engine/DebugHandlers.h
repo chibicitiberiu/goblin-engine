@@ -19,10 +19,10 @@ namespace Goblin
 	class DLLEXPORT ConsoleDebugHandler : public IDebugHandler
 	{
 	private:
-		GUI::ConsoleWindow* window;
+		Gui::ConsoleWindow* window;
 
 	public:
-		ConsoleDebugHandler(GUI::ConsoleWindow* wind);
+		ConsoleDebugHandler(Gui::ConsoleWindow* wind);
 
 		virtual void write(std::string info);
 	};

@@ -3,7 +3,7 @@
 
 namespace Goblin
 {
-	namespace GUI
+	namespace Gui
 	{
 
 		class DLLEXPORT ConsoleWindow : public Window
@@ -28,8 +28,6 @@ namespace Goblin
 			~ConsoleWindow();
 
 			void addText(sf::String txt);
-
-			void resize(float x, float y);
 		};
 
 	}
