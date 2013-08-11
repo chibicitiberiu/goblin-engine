@@ -5,7 +5,7 @@
 
 #include <vector>
 
-#include "GuiController.h"
+#include "../Gui/GuiController.h"
 #include "GameController.h"
 
 namespace Goblin {

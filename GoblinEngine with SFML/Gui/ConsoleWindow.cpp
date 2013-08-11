@@ -31,36 +31,38 @@ namespace Goblin
 
 		void ConsoleWindow::setUp()
 		{
-			// Create label
+			// Set up label
 			text = sfg::Label::Create();
 		
-			// Create scroll area
+			// Set up scroll area
 			scrollArea = sfg::ScrolledWindow::Create();
 			scrollArea->SetScrollbarPolicy(sfg::ScrolledWindow::HORIZONTAL_NEVER | sfg::ScrolledWindow::VERTICAL_ALWAYS);
 			scrollArea->AddWithViewport(text);
 
-			// Create entry text box
+			// Set up entry text box
 			entryText = sfg::Entry::Create();
 			entryText->GetSignal(sfg::Button::OnKeyPress).Connect(&ConsoleWindow::keyPressed, this);
 
-			// Create entry button
+			// Set up entry button
 			entryButton = sfg::Button::Create("Submit");
 			entryButton->GetSignal(sfg::Button::OnLeftClick).Connect(&ConsoleWindow::submitPressed, this);
 
-			// Create entry layout
+			// Set up entry layout
 			entryAreaLayout = sfg::Box::Create(sfg::Box::HORIZONTAL, 2.0f);
 			entryAreaLayout->Pack(entryText);
 			entryAreaLayout->Pack(entryButton, false, false);
 
-			// Create main layout
+			// Set up main layout
 			layout = sfg::Box::Create(sfg::Box::VERTICAL, 2.0f);
 			layout->Pack(scrollArea);
 			layout->Pack(entryAreaLayout, false, false);
 
-			// Create window
-			window->SetStyle(sfg::Window::BACKGROUND);
-			window->SetTitle("Console");
-			window->Add(layout);
+			// Set up window
+			this->setHasBackground(true);
+			this->setHasTitleBar(false);
+			this->setIsResizable(false);
+			this->setTitle("Console");
+			this->getWindowPtr()->Add(layout);
 		}
 
 		void ConsoleWindow::addText(sf::String txt)
@@ -72,7 +74,7 @@ namespace Goblin
 
 		void ConsoleWindow::resize(float x, float y)
 		{
-			this->window->SetAllocation(sf::FloatRect(0, 0, x, y));
+			this->getWindowPtr()->SetAllocation(sf::FloatRect(0, 0, x, y));
 		}
 
 	}

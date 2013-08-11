@@ -1,6 +1,6 @@
 #pragma once
 #include "../Core/IDebugHandler.h"
-#include "ConsoleWindow.h"
+#include "../Gui/ConsoleWindow.h"
 
 namespace Goblin
 {
