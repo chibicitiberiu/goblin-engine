@@ -44,7 +44,7 @@ namespace Goblin
 			this->setTitle("Loading");
 			this->setIsResizable(false);
 			this->setMinSize(320, 100);
-			this->getWindowPtr()->Add(layout);
+			this->addChild(Widget(layout));
 		}
 
 		void LoadingWindow::cancelClicked()

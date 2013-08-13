@@ -14,18 +14,23 @@
     <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="GuiController.h" />
+    <ClInclude Include="IContainer.h" />
+    <ClInclude Include="Label.h" />
     <ClInclude Include="LoadingWindow.h" />
     <ClInclude Include="SettingsWindow.h" />
     <ClInclude Include="VideoSettingsPage.h" />
+    <ClInclude Include="Widget.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleWindow.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="GuiController.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="LoadingWindow.cpp" />
     <ClCompile Include="SettingsWindow.cpp" />
     <ClCompile Include="VideoSettingsPage.cpp" />
+    <ClCompile Include="Widget.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

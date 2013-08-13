@@ -62,7 +62,7 @@ namespace Goblin
 			this->setHasTitleBar(false);
 			this->setIsResizable(false);
 			this->setTitle("Console");
-			this->getWindowPtr()->Add(layout);
+			this->addChild(Widget(layout));
 		}
 
 		void ConsoleWindow::addText(sf::String txt)
