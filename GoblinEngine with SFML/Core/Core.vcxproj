@@ -12,10 +12,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array2.h" />
+    <ClInclude Include="BasicEventCallback.h" />
     <ClInclude Include="Build.h" />
     <ClInclude Include="Clamp.h" />
+    <ClInclude Include="ClassEventCallback.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DebugStream.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="IEventCallback.h" />
     <ClInclude Include="IDebugHandler.h" />
     <ClInclude Include="IMapProvider.h" />
     <ClInclude Include="MapGrid.h" />
