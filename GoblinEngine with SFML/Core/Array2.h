@@ -21,27 +21,53 @@ namespace Goblin {
 
 	public:
 
-		// Constructors
+	// Constructors
+		/// <summary>Constructor.</summary>
+		/// <param name="w">The width of the array.</param>
+		/// <param name="h">The height of the array.</param>
 		Array2(size_t w, size_t h);
+
+		/// <summary>Constructor.</summary>
+		/// <param name="w">The width of the array.</param>
+		/// <param name="h">The height of the array.</param>
+		/// <param name="vals">An array which contains at least width * height values.</param>
 		Array2(size_t w, size_t h, const T* vals);
+
+		/// <summary>Copy constructor.</summary>
+		/// <param name="a">The array to copy from.</param>
 		Array2(const Array2&);
+
+		/// <summary>Destructor.</summary>
 		virtual ~Array2();
 
-		// Getters
+	// Getters
+		/// <summary>Gets the data from the specified location.</summary>
+		/// <param name="x">The column.</param>
+		/// <param name="y">The row.</param>
 		T& get(size_t x, size_t y) const;
+
+		/// <summary>Gets the width of the array.</summary>
+		/// <returns>The width&lt;typename t&gt;</returns>
 		size_t getWidth() const;
+
+		/// <summary>Gets the height of the array.</summary>
+		/// <returns>The height&lt;typename t&gt;</returns>
 		size_t getHeight() const;
 
-		// Setters
+	// Setters
+		/// <summary>Sets the data in the specified location.</summary>
+		/// <param name="x">The column.</param>
+		/// <param name="y">The row.</param>
+		/// <param name="value">The value to set.</param>
 		void set(size_t x, size_t y, const T& value);
 
-		// Assignment operator
+	// Assignment operator
+		/// <summary>Assignment operator.</summary>
+		/// <param name="a">The value to assign.</param>
 		Array2& operator= (const Array2& a);
 	};
 
-	/// <summary>Constructor.</summary>
-	/// <param name="w">The width of the array.</param>
-	/// <param name="h">The height of the array.</param>
+
 	template <typename T>
 	Array2<T>::Array2(size_t w, size_t h)
 	{
@@ -50,10 +76,6 @@ namespace Goblin {
 		this->data = new T[this->w * this->h];
 	}
 
-	/// <summary>Constructor.</summary>
-	/// <param name="w">The width of the array.</param>
-	/// <param name="h">The height of the array.</param>
-	/// <param name="vals">An array which contains at least width * height values.</param>
 	template <typename T>
 	Array2<T>::Array2(size_t w, size_t h, const T* vals)
 	{
@@ -65,8 +87,6 @@ namespace Goblin {
 			this->data[i] = vals[i];
 	}
 
-	/// <summary>Copy constructor.</summary>
-	/// <param name="a">The array to copy from.</param>
 	template <typename T>
 	Array2<T>::Array2(const Array2& a)
 	{
@@ -78,8 +98,6 @@ namespace Goblin {
 			this->data[i] = a.data[i];
 	}
 
-	/// <summary>Assignment operator.</summary>
-	/// <param name="a">The value to assign.</param>
 	template <typename T>
 	Array2<T>& Array2<T>::operator= (const Array2& a)
 	{
@@ -98,42 +116,30 @@ namespace Goblin {
 		return *this;
 	}
 
-	/// <summary>Destructor.</summary>
 	template <typename T>
 	Array2<T>::~Array2()
 	{
 		delete this->data;
 	}
 
-	/// <summary>Gets the data from the specified location.</summary>
-	/// <param name="x">The column.</param>
-	/// <param name="y">The row.</param>
 	template <typename T>
 	T& Array2<T>::get(size_t x, size_t y) const
 	{
 		return this->data[y * this->w + x];
 	}
 
-	/// <summary>Sets the data in the specified location.</summary>
-	/// <param name="x">The column.</param>
-	/// <param name="y">The row.</param>
-	/// <param name="value">The value to set.</param>
 	template <typename T>
 	void Array2<T>::set(size_t x, size_t y, const T& value)
 	{
 		this->data[y * this->w + x] = value;
 	}
 
-	/// <summary>Gets the width of the array.</summary>
-	/// <returns>The width&lt;typename t&gt;</returns>
 	template <typename T>
 	size_t Array2<T>::getWidth() const
 	{
 		return this->w;
 	}
 
-	/// <summary>Gets the height of the array.</summary>
-	/// <returns>The height&lt;typename t&gt;</returns>
 	template <typename T>
 	size_t Array2<T>::getHeight() const
 	{
