@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "../Core/Exception.h"
-#include "../Core/GoblinType.h"
-#include "../Engine/Application.h"
-#include "../Gui/ConsoleWindow.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -26,7 +23,7 @@ namespace Tests
 			const std::string msg ("Hello!");
 			const std::string file (__FILE__);
 			const unsigned int line = __LINE__ + 1;
-			Goblin::Exception ex = EXCEPTION(Goblin::Exception, "Hello");
+			Goblin::Exception ex = EXCEPTION(Goblin::Exception, msg);
 
 			Assert::AreEqual(msg, ex.getMessage());
 			Assert::AreEqual(file, ex.getSourceFile());
