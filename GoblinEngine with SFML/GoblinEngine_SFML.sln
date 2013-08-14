@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gui", "Gui\Gui.vcxproj", "{3CAB24F1-3D42-4647-B2C0-7F03EBB9E5F8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{119A7DEF-F7F7-438C-9170-795A1DCC3631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Multithreaded|Win32 = Debug Multithreaded|Win32
@@ -75,6 +77,18 @@ Global
 		{3CAB24F1-3D42-4647-B2C0-7F03EBB9E5F8}.Release Singlethreaded|Win32.Build.0 = Release|Win32
 		{3CAB24F1-3D42-4647-B2C0-7F03EBB9E5F8}.Release|Win32.ActiveCfg = Release|Win32
 		{3CAB24F1-3D42-4647-B2C0-7F03EBB9E5F8}.Release|Win32.Build.0 = Release|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Debug Multithreaded|Win32.ActiveCfg = Debug|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Debug Multithreaded|Win32.Build.0 = Debug|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Debug Singlethreaded|Win32.ActiveCfg = Debug|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Debug Singlethreaded|Win32.Build.0 = Debug|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Debug|Win32.ActiveCfg = Debug|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Debug|Win32.Build.0 = Debug|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Release Multithreaded|Win32.ActiveCfg = Release|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Release Multithreaded|Win32.Build.0 = Release|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Release Singlethreaded|Win32.ActiveCfg = Release|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Release Singlethreaded|Win32.Build.0 = Release|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Release|Win32.ActiveCfg = Release|Win32
+		{119A7DEF-F7F7-438C-9170-795A1DCC3631}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
