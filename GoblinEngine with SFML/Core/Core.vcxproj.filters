@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Map">
       <UniqueIdentifier>{da1cd37f-5c88-4c18-b674-d6062c47ae54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Events">
+      <UniqueIdentifier>{e18ae80f-0032-487a-aeec-1e6e18965402}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array2.h">
@@ -78,20 +81,20 @@
     <ClInclude Include="IDebugHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IEventCallback.h">
+    <ClInclude Include="Exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BasicEventCallback.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Events</Filter>
     </ClInclude>
     <ClInclude Include="ClassEventCallback.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Events</Filter>
     </ClInclude>
     <ClInclude Include="Event.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Events</Filter>
     </ClInclude>
-    <ClInclude Include="Exception.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="IEventCallback.h">
+      <Filter>Header Files\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

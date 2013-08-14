@@ -92,7 +92,10 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BasicEventCallbackTest.cpp" />
     <ClCompile Include="ClampTest.cpp" />
+    <ClCompile Include="ClassEventCallbackTest.cpp" />
+    <ClCompile Include="EventTest.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
