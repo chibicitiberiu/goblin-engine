@@ -20,29 +20,31 @@
     <ClInclude Include="DebugStream.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Exception.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="IEventCallback.h" />
     <ClInclude Include="IDebugHandler.h" />
     <ClInclude Include="IMapProvider.h" />
+    <ClInclude Include="MapEntityComponent.h" />
     <ClInclude Include="MapGrid.h" />
     <ClInclude Include="MapGridIo.h" />
     <ClInclude Include="MapObject.h" />
-    <ClInclude Include="GoblinObject.h" />
-    <ClInclude Include="GoblinType.h" />
-    <ClInclude Include="GoblinTypeFactory.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="GType.h" />
+    <ClInclude Include="GTypeFactory.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ISerializable.h" />
     <ClInclude Include="SmartPtr.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Component.cpp" />
     <ClCompile Include="DebugStream.cpp" />
     <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="MapEntityComponent.cpp" />
     <ClCompile Include="MapGrid.cpp" />
     <ClCompile Include="MapGridIo.cpp" />
     <ClCompile Include="MapObject.cpp" />
-    <ClCompile Include="GoblinObject.cpp" />
-    <ClCompile Include="GoblinType.cpp" />
-    <ClCompile Include="GoblinTypeFactory.cpp" />
+    <ClCompile Include="GType.cpp" />
+    <ClCompile Include="GTypeFactory.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

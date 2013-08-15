@@ -1,16 +1,17 @@
 #pragma once
 
-#include "GoblinObject.h"
+#include "Object.h"
 #include "ISerializable.h"
 
 namespace Goblin
 {
 
-	class DLLEXPORT Component : public GoblinObject, public ISerializable
+	class DLLEXPORT Component : public Object /*, public ISerializable */
 	{
 	public:
-		Component(void);
-		virtual ~Component(void);
+		virtual ~Component(void)
+		{
+		}
 	};
 
 }

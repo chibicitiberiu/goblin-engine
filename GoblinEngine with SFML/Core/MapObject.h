@@ -1,6 +1,6 @@
 #pragma once
 #include "Array2.h"
-#include "GoblinObject.h"
+#include "Object.h"
 #include "ISerializable.h"
 #include "Player.h"
 #include "Component.h"
@@ -10,7 +10,7 @@
 
 namespace Goblin
 {
-	class DLLEXPORT MapObject : public GoblinObject/*, public ISerializable*/
+	class DLLEXPORT MapObject : public Object/*, public ISerializable*/
 	{
 	private:
 		std::vector<Component*>* components;

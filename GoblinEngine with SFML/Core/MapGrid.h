@@ -1,20 +1,21 @@
 #pragma once
 #include "Build.h"
 #include "Array2.h"
-#include "GoblinObject.h"
+#include "Object.h"
 #include "ISerializable.h"
 #include "MapObject.h"
+#include "SmartPtr.h"
 #include <vector>
 
 namespace Goblin {
 
-	class DLLEXPORT MapGrid : public GoblinObject /*, public ISerializable */
+	class DLLEXPORT MapGrid : public Object /*, public ISerializable */
 	{
 
 	private:
 		
 		Array2<int>* terrain;	
-		Array2<MapObject*>* objects;
+		Array2< SmartPtr<MapObject> >* objects;
 		Array2<int>* heightMap;
 
 		float gridCellWidth, gridCellHeight;

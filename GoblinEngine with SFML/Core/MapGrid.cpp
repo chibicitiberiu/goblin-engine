@@ -1,4 +1,5 @@
 #include "MapGrid.h"
+#include "SmartPtr.h"
 
 namespace Goblin
 {
@@ -9,7 +10,7 @@ namespace Goblin
 		this->terrain = new Array2<int>(width, height);
 
 		// Create object array
-		this->objects = new Array2<MapObject*>(width, height);
+		this->objects = new Array2< SmartPtr<MapObject> >(width, height);
 	}
 
 	MapGrid::MapGrid(std::string file)
@@ -30,25 +31,7 @@ namespace Goblin
 
 		// Delete objects
 		if (this->objects != NULL)
-		{
-			for (size_t y = 0; y < this->objects->getHeight(); y++) 
-				for (size_t x = 0; x < this->objects->getWidth(); x++)
-				{
-					MapObject* obj = this->objects->get(x, y);
-
-					if (obj != NULL)
-					{
-						// Make sure we don't destroy it twice
-						this->fillObjectShape(obj->getShape(), x, y, NULL);
-
-						// Own object? destroy it
-						if (obj->getOwner() == this)
-							delete obj;
-					}
-				}
-
 			delete this->objects;
-		}
 	}
 
 	void MapGrid::fillObjectShape(Array2<int>* shape, size_t off_x, size_t off_y, MapObject* value)

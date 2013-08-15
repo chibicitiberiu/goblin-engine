@@ -15,12 +15,6 @@ namespace Goblin
 
 	GameController::~GameController(void)
 	{
-		for (auto it = this->players->begin(); it != this->players->end(); it++)
-		{
-			if ((*it)->getOwner() == this)
-				delete *it;
-		}
-
 		delete this->players;
 	}
 
@@ -28,9 +22,6 @@ namespace Goblin
 	{
 		assert(this->players != NULL);
 		assert(player != NULL);
-
-		if (player->getOwner() == NULL)
-			player->setOwner(this);
 
 		this->players->push_back(player);
 	}
@@ -40,7 +31,6 @@ namespace Goblin
 		assert(this->players != NULL);
 
 		Player* player = new Player(kind, name, color);
-		player->setOwner(this);
 
 		this->players->push_back(player);
 	}
