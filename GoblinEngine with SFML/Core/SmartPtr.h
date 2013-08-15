@@ -13,10 +13,10 @@ namespace Goblin
 
 	public:
 		
-		/// <summary>Creates new instance of smart pointer and a new objecst.</summary>
+		/// <summary>Creates an instance of NULL smart pointer.</summary>
 		SmartPtr() {
 			this->_refs = new unsigned(1);
-			this->_obj = new T();
+			this->_obj = NULL;
 		}
 
 		/// <summary>Copy constructor.</summary>
@@ -124,6 +124,14 @@ namespace Goblin
 		unsigned _size;
 
 	public:
+
+		/// <summary>Creates new instance of NULL array smart pointer.</summary>
+		/// <param name="p">The const smart pointer to copy.</param>
+		SmartPtr() {
+			this->_refs = new unsigned(1);
+			this->_obj = NULL;
+			this->_size = 0;
+		}
 
 		/// <summary>Copy constructor.</summary>
 		/// <param name="p">The const smart pointer to copy.</param>
