@@ -34,15 +34,18 @@
     <Filter Include="Header Files\Events">
       <UniqueIdentifier>{e18ae80f-0032-487a-aeec-1e6e18965402}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Debugging">
+      <UniqueIdentifier>{af004071-02ce-4752-8167-6bb7d4193203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Debugging">
+      <UniqueIdentifier>{7cb87d70-e46a-4c94-9cdd-ff53f114a1a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Clamp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GoblinObject.h">
@@ -78,9 +81,6 @@
     <ClInclude Include="ISerializable.h">
       <Filter>Header Files\GoblinType</Filter>
     </ClInclude>
-    <ClInclude Include="IDebugHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -96,11 +96,17 @@
     <ClInclude Include="IEventCallback.h">
       <Filter>Header Files\Events</Filter>
     </ClInclude>
+    <ClInclude Include="DebugStream.h">
+      <Filter>Header Files\Debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="IDebugHandler.h">
+      <Filter>Header Files\Debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DebugStream.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GoblinObject.cpp">
       <Filter>Source Files\GoblinType</Filter>
     </ClCompile>
@@ -127,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="Exception.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugStream.cpp">
+      <Filter>Source Files\Debugging</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

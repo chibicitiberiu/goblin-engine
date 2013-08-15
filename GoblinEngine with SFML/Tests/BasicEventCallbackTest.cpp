@@ -12,7 +12,7 @@ namespace Tests
 		bool* result;
 	};
 
-	void BasicEventCallbackTest_callback_function(const BasicEventCallbackTest_EventArgs& args)
+	void BasicEventCallbackTest_Callback(const BasicEventCallbackTest_EventArgs& args)
 	{
 		*args.result = true;
 	}
@@ -24,7 +24,7 @@ namespace Tests
 		TEST_METHOD(BasicEventCallback)
 		{
 			// Set up callback
-			Goblin::BasicEventCallback<BasicEventCallbackTest_EventArgs> e(BasicEventCallbackTest_callback_function);
+			Goblin::BasicEventCallback<BasicEventCallbackTest_EventArgs> e(BasicEventCallbackTest_Callback);
 			
 			// Set up event args
 			BasicEventCallbackTest_EventArgs args;
