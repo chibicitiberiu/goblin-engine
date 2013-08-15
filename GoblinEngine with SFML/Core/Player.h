@@ -4,6 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include "Build.h"
 #include <string>
+#include <map>
 
 using sf::Color;
 
@@ -21,6 +22,7 @@ namespace Goblin
 		Color color;
 		PlayerKind kind;
 		std::string name;
+		std::map<int, int> resources;
 
 	public:
 		Player();

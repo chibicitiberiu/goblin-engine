@@ -19,18 +19,6 @@
     <Filter Include="Source Files\GoblinType">
       <UniqueIdentifier>{caf55f8e-953a-44fd-935f-4bb58b9ed3a8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Components">
-      <UniqueIdentifier>{58d25346-7968-47d3-a8cc-92dd368fe8a7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components">
-      <UniqueIdentifier>{6a00f7a7-b102-4645-87ca-f7334dc5339d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Map">
-      <UniqueIdentifier>{dacdde6f-630c-427d-8ab6-58f28042d88c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Map">
-      <UniqueIdentifier>{da1cd37f-5c88-4c18-b674-d6062c47ae54}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Debugging">
       <UniqueIdentifier>{af004071-02ce-4752-8167-6bb7d4193203}</UniqueIdentifier>
     </Filter>
@@ -39,6 +27,18 @@
     </Filter>
     <Filter Include="Header Files\Events">
       <UniqueIdentifier>{e18ae80f-0032-487a-aeec-1e6e18965402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game entities">
+      <UniqueIdentifier>{d6188463-9f63-45f7-a1d1-b98cfe194e34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game entities\Components">
+      <UniqueIdentifier>{58d25346-7968-47d3-a8cc-92dd368fe8a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game entities">
+      <UniqueIdentifier>{9eec7cf6-d05c-48c9-b680-8829383b1173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game entities\Components">
+      <UniqueIdentifier>{6a00f7a7-b102-4645-87ca-f7334dc5339d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,25 +49,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game entities\Components</Filter>
     </ClInclude>
     <ClInclude Include="Build.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IMapProvider.h">
-      <Filter>Header Files\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="MapGrid.h">
-      <Filter>Header Files\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="MapGridIo.h">
-      <Filter>Header Files\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="MapObject.h">
-      <Filter>Header Files\Map</Filter>
     </ClInclude>
     <ClInclude Include="Exception.h">
       <Filter>Header Files</Filter>
@@ -106,25 +91,16 @@
       <Filter>Header Files\GoblinType</Filter>
     </ClInclude>
     <ClInclude Include="MapEntityComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game entities\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Game entities</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MapGrid.cpp">
-      <Filter>Source Files\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="MapGridIo.cpp">
-      <Filter>Source Files\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="MapObject.cpp">
-      <Filter>Source Files\Map</Filter>
-    </ClCompile>
     <ClCompile Include="Exception.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -138,10 +114,13 @@
       <Filter>Source Files\GoblinType</Filter>
     </ClCompile>
     <ClCompile Include="MapEntityComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game entities\Components</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Game entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

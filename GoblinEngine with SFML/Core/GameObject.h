@@ -56,6 +56,19 @@ namespace Goblin
 			return SmartPtr<T>();
 		}
 
+		/// <summary>Removes the component of specified type.</summary>
+		/// <typeparam name="T">Component type.</typeparam>
+		template <class T>
+		void removeComponent()
+		{
+			for (auto it = components->begin(); it != components->end(); it++)
+				if (typeid(T) == typeid(**it))
+				{
+					components->erase(it);
+					return;
+				}
+		}
+
 	// Object
 		/// <summary>Creates a clone of this object.</summary>
 		/// <returns>The cloned object.</returns>
