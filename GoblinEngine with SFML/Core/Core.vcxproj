@@ -23,6 +23,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IEventCallback.h" />
     <ClInclude Include="IDebugHandler.h" />
+    <ClInclude Include="IMapProvider.h" />
     <ClInclude Include="MapEntityComponent.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="GType.h" />

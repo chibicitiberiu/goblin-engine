@@ -7,8 +7,8 @@ namespace Goblin
 
 	GameController::GameController(void)
 	{
-		this->players = new std::vector<Player*>();
-
+		this->players = new std::vector< SmartPtr<Player> >();
+		
 		this->addPlayer(Player::NeutralPlayer, "Neutral", Color(192, 192, 192));
 	}
 
@@ -18,7 +18,7 @@ namespace Goblin
 		delete this->players;
 	}
 
-	void GameController::addPlayer(Player* player)
+	void GameController::addPlayer(SmartPtr<Player> player)
 	{
 		assert(this->players != NULL);
 		assert(player != NULL);
@@ -31,40 +31,13 @@ namespace Goblin
 		assert(this->players != NULL);
 
 		Player* player = new Player(kind, name, color);
-
-		this->players->push_back(player);
+		this->players->push_back(SmartPtr<Player>(player));
 	}
 
-	size_t GameController::getMapWidth() const
+	void GameController::loadMap(IMapProvider& mapProvider)
 	{
-		return (this->map == NULL) ? 0 : 100 /* todo */ ;
-	}
-
-	size_t GameController::getMapHeight() const
-	{
-		return (this->map == NULL) ? 0 : 100 /* todo */ ;
-	}
-
-	int GameController::getMapTerrain(size_t cell_x, size_t cell_y) const
-	{
-		// todo...
-		return 0;
-	}
-
-	int GameController::getMapHeight(size_t cell_x, size_t cell_y) const
-	{
-		// todo...
-		return 0;
-	}
-
-	MapObject* GameController::getMapObject(size_t cell_x, size_t cell_y) const
-	{
-		// todo...
-		return NULL;
-	}
-
-	void GameController::loadMap(IMapProvider* mapProvider)
-	{
-		// todo...
+		Vector2u size = mapProvider.getSize();
+		this->objects = SmartPtr<Array2<SmartPtr<GameObject>>>(new Array2<SmartPtr<GameObject>>(size.x, size.y));
+		this->terrain = SmartPtr<Array2<int>>(new Array2<int>(size.x, size.y));
 	}
 }

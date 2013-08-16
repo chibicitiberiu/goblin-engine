@@ -99,6 +99,9 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Game entities</Filter>
     </ClInclude>
+    <ClInclude Include="IMapProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exception.cpp">
