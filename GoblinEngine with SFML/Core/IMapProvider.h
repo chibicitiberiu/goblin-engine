@@ -2,6 +2,7 @@
 
 #include "Build.h"
 #include "GameObject.h"
+#include <SFML/Graphics.hpp>
 
 using sf::Vector2u;
 using sf::Vector2f;

@@ -9,7 +9,8 @@ using sf::Vector2u;
 
 namespace Goblin
 {
-	class MapEntityComponent : public Component
+	/// <summary>Map entity component. Defines behavior for positioning the object on the map.</summary>
+	class DLLEXPORT MapEntityComponent : public Component
 	{
 	private:
 		Vector2u gridPosition;

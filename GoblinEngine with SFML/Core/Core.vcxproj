@@ -24,22 +24,26 @@
     <ClInclude Include="IEventCallback.h" />
     <ClInclude Include="IDebugHandler.h" />
     <ClInclude Include="IMapProvider.h" />
+    <ClInclude Include="MapCell.h" />
     <ClInclude Include="MapEntityComponent.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="GType.h" />
     <ClInclude Include="GTypeFactory.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ISerializable.h" />
+    <ClInclude Include="ResourceComponent.h" />
     <ClInclude Include="SmartPtr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DebugStream.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="MapCell.cpp" />
     <ClCompile Include="MapEntityComponent.cpp" />
     <ClCompile Include="GType.cpp" />
     <ClCompile Include="GTypeFactory.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ResourceComponent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B6BF89C7-1E89-4163-BACA-846E07F64E17}</ProjectGuid>

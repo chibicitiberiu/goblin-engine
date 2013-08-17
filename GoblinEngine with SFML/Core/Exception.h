@@ -51,4 +51,82 @@ namespace Goblin
 		virtual std::string toString() const;
 
 	};
+
+	/// <summary>Exception for signalling null reference errors.</summary>
+	class DLLEXPORT NullReferenceException : public Exception
+	{
+	public:
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		NullReferenceException(std::string message) 
+			: Exception(message)
+		{
+		}
+
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		/// <param name="source_file">Source file where the exception originated.</param>
+		/// <param name="line">The line on which the exception was thrown.</param>
+		NullReferenceException(std::string message, std::string source_file, unsigned int line)
+			: Exception(message, source_file, line)
+		{
+		}
+
+		/// <summary>Destructor.</summary>
+		virtual ~NullReferenceException(void)
+		{
+		}
+	};
+
+	/// <summary>Exception for signalling argument out of range errors.</summary>
+	class DLLEXPORT ArgumentOutOfRangeException : public Exception
+	{
+	public:
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		ArgumentOutOfRangeException(std::string message) 
+			: Exception(message)
+		{
+		}
+
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		/// <param name="source_file">Source file where the exception originated.</param>
+		/// <param name="line">The line on which the exception was thrown.</param>
+		ArgumentOutOfRangeException(std::string message, std::string source_file, unsigned int line)
+			: Exception(message, source_file, line)
+		{
+		}
+
+		/// <summary>Destructor.</summary>
+		virtual ~ArgumentOutOfRangeException(void)
+		{
+		}
+	};
+
+	/// <summary>Exception for signalling not implemented errors.</summary>
+	class DLLEXPORT NotImplementedException : public Exception
+	{
+	public:
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		NotImplementedException(std::string message) 
+			: Exception(message)
+		{
+		}
+
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		/// <param name="source_file">Source file where the exception originated.</param>
+		/// <param name="line">The line on which the exception was thrown.</param>
+		NotImplementedException(std::string message, std::string source_file, unsigned int line)
+			: Exception(message, source_file, line)
+		{
+		}
+
+		/// <summary>Destructor.</summary>
+		virtual ~NotImplementedException(void)
+		{
+		}
+	};
 }

@@ -37,7 +37,52 @@ namespace Goblin
 	void GameController::loadMap(IMapProvider& mapProvider)
 	{
 		Vector2u size = mapProvider.getSize();
-		this->objects = SmartPtr<Array2<SmartPtr<GameObject>>>(new Array2<SmartPtr<GameObject>>(size.x, size.y));
-		this->terrain = SmartPtr<Array2<int>>(new Array2<int>(size.x, size.y));
+		
+	}
+
+	Vector2u GameController::getMapSize() const
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+
+	Vector2f GameController::getCellSize() const
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+
+	MapCell& GameController::getCell(Vector2u cell)
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+
+	MapCell& GameController::getCell(unsigned x, unsigned y)
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+		
+	Vector2f GameController::cellToAbsolute(Vector2u cell)
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+
+	Vector2f GameController::cellToAbsolute(unsigned x, unsigned y)
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+
+	Vector2u GameController::absoluteToCell(Vector2f coord)
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+
+	Vector2u GameController::absoluteToCell(float x, float y)
+	{
+		throw EXCEPTION(NotImplementedException, "Not implemented.");
+	}
+
+
+	Object* GameController::clone() const
+	{
+		return new GameController(*this);
 	}
 }

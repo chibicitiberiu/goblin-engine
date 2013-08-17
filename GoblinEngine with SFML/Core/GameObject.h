@@ -2,12 +2,13 @@
 #include "Object.h"
 #include "SmartPtr.h"
 #include "Component.h"
+#include "Exception.h"
 #include <typeinfo>
 #include <vector>
 
 namespace Goblin
 {
-	class GameObject : public Object
+	class DLLEXPORT GameObject : public Object
 	{
 	private:
 		std::vector<SmartPtr<Component> >* components;
@@ -45,15 +46,16 @@ namespace Goblin
 
 		/// <summary>Gets the component of specified type.</summary>
 		/// <typeparam name="T">Component type.</typeparam>
-		/// <returns>A pointer to the component, or NULL if no such component exists.</returns>
+		/// <returns>A reference to the component, or exception if no such component exists.</returns>
+		/// <exception cref="NullReferenceException">Thrown if component not found.</exception>
 		template <class T>
-		SmartPtr<T> getComponent()
+		T& getComponent()
 		{
 			for (auto it = components->begin(); it != components->end(); it++)
 				if (typeid(T) == typeid(**it))
 					return *it;
 
-			return SmartPtr<T>();
+			throw EXCEPTION(NullReferenceException, "Component does not exist.");
 		}
 
 		/// <summary>Removes the component of specified type.</summary>

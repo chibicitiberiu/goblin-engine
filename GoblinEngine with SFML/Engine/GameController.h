@@ -5,6 +5,7 @@
 #include "../Core/IMapProvider.h"
 #include "../Core/SmartPtr.h"
 #include "../Core/GameObject.h"
+#include "../Core/MapCell.h"
 #include <vector>
 #include <map>
 
@@ -16,8 +17,7 @@ namespace Goblin
 	{
 	private:
 		std::vector< SmartPtr<Player> >* players;
-		SmartPtr<Array2< SmartPtr<GameObject> > > objects;
-		SmartPtr<Array2<int> > terrain;
+		SmartPtr<Array2< MapCell > > map;
 		
 	public:
 
@@ -32,11 +32,16 @@ namespace Goblin
 		// Game map
 		virtual void loadMap(IMapProvider& mapProvider);
 
-		//virtual Vector2u getMapSize() const;
-		//virtual int getMapTerrain(size_t cell_x, size_t cell_y) const;
-		//virtual int getMapHeight(size_t cell_x, size_t cell_y) const;
-
+		virtual Vector2u getMapSize() const;
+		virtual Vector2f getCellSize() const;
+		virtual MapCell& getCell(Vector2u cell);
+		virtual MapCell& getCell(unsigned x, unsigned y);
 		
+		virtual Vector2f cellToAbsolute(Vector2u cell);
+		virtual Vector2f cellToAbsolute(unsigned x, unsigned y);
+		virtual Vector2u absoluteToCell(Vector2f coord);
+		virtual Vector2u absoluteToCell(float x, float y);
+
 		// Object
 		virtual Object* clone() const;
 	};
