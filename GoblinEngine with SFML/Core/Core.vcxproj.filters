@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Game entities\Components">
       <UniqueIdentifier>{6a00f7a7-b102-4645-87ca-f7334dc5339d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game entities\Actions">
+      <UniqueIdentifier>{0ed0139f-60f7-442c-9894-42d53e804b58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game entities\Actions">
+      <UniqueIdentifier>{9630f9cd-5d64-4f8d-aefc-033184011f6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array2.h">
@@ -108,6 +114,15 @@
     <ClInclude Include="ResourceComponent.h">
       <Filter>Header Files\Game entities\Components</Filter>
     </ClInclude>
+    <ClInclude Include="ActionClass.h">
+      <Filter>Header Files\Game entities\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Header Files\Game entities\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableComponent.h">
+      <Filter>Header Files\Game entities\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Exception.cpp">
@@ -132,10 +147,13 @@
       <Filter>Source Files\Game entities</Filter>
     </ClCompile>
     <ClCompile Include="MapCell.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game entities</Filter>
     </ClCompile>
     <ClCompile Include="ResourceComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game entities\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MovableComponent.cpp">
+      <Filter>Source Files\Game entities\Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="ActionClass.h" />
     <ClInclude Include="Array2.h" />
     <ClInclude Include="BasicEventCallback.h" />
     <ClInclude Include="Build.h" />
@@ -26,6 +28,7 @@
     <ClInclude Include="IMapProvider.h" />
     <ClInclude Include="MapCell.h" />
     <ClInclude Include="MapEntityComponent.h" />
+    <ClInclude Include="MovableComponent.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="GType.h" />
     <ClInclude Include="GTypeFactory.h" />
@@ -42,6 +45,7 @@
     <ClCompile Include="MapEntityComponent.cpp" />
     <ClCompile Include="GType.cpp" />
     <ClCompile Include="GTypeFactory.cpp" />
+    <ClCompile Include="MovableComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourceComponent.cpp" />
   </ItemGroup>
