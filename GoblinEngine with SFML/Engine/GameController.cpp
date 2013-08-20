@@ -29,6 +29,7 @@ namespace Goblin
 		players = new PlayersContainer();
 		objects = new ObjectsContainer();
 		selectedObjects = new SelectedObjectsContainer();
+		actionQueue = new ActionQueueContainer();
 	}
 
 	GameController::~GameController(void)
@@ -37,6 +38,7 @@ namespace Goblin
 		delete objects;
 		delete selectedObjects;
 		delete map;
+		delete actionQueue;
 	}
 
 	unsigned GameController::toObjectIndex(Vector2u pos)
@@ -146,8 +148,58 @@ namespace Goblin
 	{
 	}
 
-	void GameController::tick(sf::Time elapsed)
+	void GameController::addAction(SmartPtr<GameObject> object, SmartPtr<Action> action)
 	{
+		// Create queue item structure
+		ActionQueueItem item;
+		item.object = object;
+		item.action = action;
+
+		// Find previous item in queue
+		for (auto it = actionQueue->begin(); it != actionQueue->end(); it++)
+		{
+			if (it->object == object)
+				item.dependsOn = it->action;
+		}
+
+		// Enqueue
+		actionQueue->push_back(item);
+	}
+
+
+	void GameController::actionsTick(const sf::Time& elapsed)
+	{
+		// Perform actions
+		for (auto it = actionQueue->begin(); it != actionQueue->end(); it++)
+		{
+			// Doesn't have dependencies (means that it is first in queue)
+			if (it->dependsOn.ptr() == NULL)
+				it->action->tick(elapsed);
+
+			// Finished?
+			if (it->action->isFinished())
+			{
+				// Delete action
+				SmartPtr<Action> action = it->action;
+				it = actionQueue->erase(it);
+
+				// Find actions that depend on it
+				for (auto it2 = it; it2 != actionQueue->end(); it2++)
+					if (it2->dependsOn == action)
+					{
+						// Remove dependency
+						it2->dependsOn = SmartPtr<Action>();
+
+						// Tell action it is about to start
+						it2->action->onActionStarted();
+					}
+			}
+		}
+	}
+
+	void GameController::tick(const sf::Time& elapsed)
+	{
+		actionsTick(elapsed);
 	}
 
 	Object* GameController::clone() const

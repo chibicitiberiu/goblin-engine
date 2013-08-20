@@ -8,6 +8,7 @@
 #include "../Core/MapCell.h"
 #include <vector>
 #include <map>
+#include <list>
 
 using sf::Vector2u;
 using sf::FloatRect;
@@ -38,7 +39,14 @@ namespace Goblin
 		unsigned toObjectIndex(Vector2u pos);
 
 		// Action queue
+		struct ActionQueueItem {
+			SmartPtr<GameObject> object;
+			SmartPtr<Action> action;
+			SmartPtr<Action> dependsOn;
+		};
 
+		typedef std::list<ActionQueueItem> ActionQueueContainer;
+		ActionQueueContainer* actionQueue;
 
 		// Absolute size of one cell
 		Vector2u mapSize;
@@ -67,11 +75,15 @@ namespace Goblin
 		virtual Vector2u absoluteToCell(Vector2f coord);
 		virtual Vector2u absoluteToCell(float x, float y);
 
+		// Actions
+		virtual void actionsTick(const sf::Time& elapsed);
+		virtual void addAction(SmartPtr<GameObject> object, SmartPtr<Action> action);
+
 		// Interactions
 		virtual void select(bool add_to_selection, FloatRect area_absolute);
 		virtual void move(Vector2f dest);
 
-		virtual void tick(sf::Time elapsed);
+		virtual void tick(const sf::Time& elapsed);
 
 		// Object
 		virtual Object* clone() const;
