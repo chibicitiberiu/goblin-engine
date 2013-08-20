@@ -10,27 +10,52 @@
 #include <map>
 
 using sf::Vector2u;
+using sf::FloatRect;
+typedef sf::Rect<unsigned> UIntRect;
 
 namespace Goblin
 {
 	class DLLEXPORT GameController : public Object
 	{
 	private:
-		std::vector< SmartPtr<Player> >* players;
-		SmartPtr<Array2< MapCell > > map;
+
+		// List of players in current game.
+		typedef std::vector<SmartPtr<Player> > PlayersContainer;
+		PlayersContainer* players;
 		
+		// List of selected objects. Must be unique.
+		typedef std::vector<SmartPtr<GameObject> > SelectedObjectsContainer;
+		SelectedObjectsContainer* selectedObjects;
+		
+		// Game map. A bidimensional array.
+		typedef Array2<MapCell> MapType;
+		MapType* map;
+
+		// Object map. To each cell can correspond one or more objects, so we use a multi-dictionary.
+		typedef std::multimap<unsigned, SmartPtr<GameObject> > ObjectsContainer;
+		ObjectsContainer* objects;
+		
+		unsigned toObjectIndex(Vector2u pos);
+
+		// Action queue
+
+
+		// Absolute size of one cell
+		Vector2u mapSize;
+		Vector2f cellSize;
+
+		void initialize();
+
 	public:
 
 		// Constructor, destructor
-		GameController(void);
+		GameController(unsigned width, unsigned height);
+		GameController(IMapProvider& mapProvider);
 		virtual ~GameController(void);
 
 		// Players
 		virtual void addPlayer(SmartPtr<Player> player);
 		virtual void addPlayer(Player::PlayerKind kind, std::string name, Color color);
-
-		// Game map
-		virtual void loadMap(IMapProvider& mapProvider);
 
 		virtual Vector2u getMapSize() const;
 		virtual Vector2f getCellSize() const;
@@ -41,6 +66,12 @@ namespace Goblin
 		virtual Vector2f cellToAbsolute(unsigned x, unsigned y);
 		virtual Vector2u absoluteToCell(Vector2f coord);
 		virtual Vector2u absoluteToCell(float x, float y);
+
+		// Interactions
+		virtual void select(bool add_to_selection, FloatRect area_absolute);
+		virtual void move(Vector2f dest);
+
+		virtual void tick(sf::Time elapsed);
 
 		// Object
 		virtual Object* clone() const;

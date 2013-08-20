@@ -1,4 +1,5 @@
 #include "../Engine/Application.h"
+#include "../Core/DebugStream.h"
 #include <iostream>
 
 int main()
@@ -10,5 +11,16 @@ int main()
 
 	// Run game
 	Goblin::Application app;
-	return app.main();
+	
+	try {
+		app.main();
+	}
+
+	catch (Goblin::Exception& ex)
+	{
+		Goblin::debug<<"! PANIC: Unhandled exception!\n";
+		Goblin::debug<<ex.toString()<<"\n";
+	}
+
+	return 0;
 }
