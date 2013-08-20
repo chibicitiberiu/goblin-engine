@@ -8,7 +8,7 @@ using sf::Vector2f;
 
 namespace Goblin
 {
-	class MapCell : public Object
+	class DLLEXPORT MapCell : public Object
 	{
 	private:
 		int terrainType;

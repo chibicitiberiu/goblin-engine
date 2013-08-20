@@ -57,14 +57,14 @@ namespace Goblin
 		}
 
 		/// <summary>Gets pointer address.</summary>
-		T* operator-> ()
+		T* operator-> () const
 		{
 			return this->_obj;
 		}
 
 		/// <summary>Gets dereferenced pointer.</summary>
 		/// <returns>The result of the operation.</returns>
-		T& operator* ()
+		T& operator* () const
 		{
 			return *this->_obj;
 		}
@@ -192,7 +192,7 @@ namespace Goblin
 		/// <summary>Gets element at index.</summary>
 		/// <param name="index">Zero-based index of the array.</param>
 		/// <returns>The indexed value.</returns>
-		T& operator[] (unsigned index)
+		T& operator[] (unsigned index) const
 		{
 			return this->_obj[index];
 		}

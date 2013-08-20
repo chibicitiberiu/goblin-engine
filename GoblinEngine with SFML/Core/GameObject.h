@@ -3,6 +3,7 @@
 #include "SmartPtr.h"
 #include "Component.h"
 #include "Exception.h"
+#include "ActionClass.h"
 #include <typeinfo>
 #include <vector>
 
@@ -10,8 +11,15 @@ namespace Goblin
 {
 	class DLLEXPORT GameObject : public Object
 	{
+	public:
+		typedef std::vector<SmartPtr<ActionClass>> ActionClassContainer;
+
 	private:
-		std::vector<SmartPtr<Component> >* components;
+
+		typedef std::vector<SmartPtr<Component>> ComponentContainer;
+		
+		ComponentContainer* components;
+		ActionClassContainer* actions;
 
 	public:
 
@@ -53,9 +61,22 @@ namespace Goblin
 		{
 			for (auto it = components->begin(); it != components->end(); it++)
 				if (typeid(T) == typeid(**it))
-					return *it;
+					return dynamic_cast<T&> (**it);
 
 			throw EXCEPTION(NullReferenceException, "Component does not exist.");
+		}
+
+		/// <summary>Gets the component of specified type.</summary>
+		/// <typeparam name="T">Component type.</typeparam>
+		/// <returns>A pointer to the component, or NULL if no such component exists.</returns>
+		template <class T>
+		T* tryGetComponent()
+		{
+			for (auto it = components->begin(); it != components->end(); it++)
+				if (typeid(T) == typeid(**it))
+					return dynamic_cast<T*>(it->ptr());
+
+			return NULL;
 		}
 
 		/// <summary>Removes the component of specified type.</summary>
@@ -70,6 +91,20 @@ namespace Goblin
 					return;
 				}
 		}
+
+	// Action classes
+		
+		/// <summary>Adds an action class.</summary>
+		/// <param name="actionClass">The action class.</param>
+		void addActionClass(SmartPtr<ActionClass> actionClass);
+
+		/// <summary>Gets an iterator to the beginning of the action classes list.</summary>
+		/// <returns>An iterator to the beginning of the action list.</returns>
+		ActionClassContainer::iterator actionsBegin() const;
+
+		/// <summary>Gets an iterator to the end of the action classes list.</summary>
+		/// <returns>An iterator to the position after the last action class.</returns>
+		ActionClassContainer::iterator actionsEnd() const;
 
 	// Object
 		/// <summary>Creates a clone of this object.</summary>
