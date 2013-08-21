@@ -22,7 +22,7 @@ namespace Goblin
 		Color color;
 		PlayerKind kind;
 		std::string name;
-		std::map<int, int> resources;
+		std::map<int, float> resources;
 
 	public:
 		Player();

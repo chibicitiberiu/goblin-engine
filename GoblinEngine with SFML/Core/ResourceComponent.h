@@ -8,7 +8,7 @@ namespace Goblin
 	class DLLEXPORT ResourceComponent : public Component
 	{
 	private:
-		std::map<int, int>* resources;
+		std::map<int, float>* resources;
 
 	public:
 	// Constructor
@@ -31,13 +31,13 @@ namespace Goblin
 		/// <summary>Sets resource amount.</summary>
 		/// <param name="type"> The resource type.</param>
 		/// <param name="amount">The resource amount.</param>
-		void setResource(int type, int amount);
+		void setResource(int type, float amount);
 
 	// Getters
 		/// <summary>Gets resource amount.</summary>
 		/// <param name="type">The resource type.</param>
 		/// <returns>The resource amount.</returns>
-		int getResourceAmount(int type);
+		float getResourceAmount(int type);
 
 	// Object base class
 		/// <summary>Creates a clone of this object.</summary>

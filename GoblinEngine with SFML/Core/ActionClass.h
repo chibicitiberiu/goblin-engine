@@ -24,7 +24,7 @@ namespace Goblin
 		/// <summary>Gets the cost of the action.</summary>
 		/// <param name="resourceType">Type of the resource.</param>
 		/// <returns>The cost.</returns>
-		virtual int getResourceCost(int resourceType) = 0;
+		virtual float getResourceCost(int resourceType) = 0;
 
 		/// <summary>Determine if we can create an action.</summary>
 		/// <param name="object">The game object.</param>

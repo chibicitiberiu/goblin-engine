@@ -3,12 +3,12 @@
 namespace Goblin
 {
 	ResourceComponent::ResourceComponent(void)
-		: resources(new std::map<int, int>())
+		: resources(new std::map<int, float>())
 	{
 	}
 
 	ResourceComponent::ResourceComponent(const ResourceComponent& rc)
-		: resources(new std::map<int, int>(*rc.resources))
+		: resources(new std::map<int, float>(*rc.resources))
 	{
 	}
 
@@ -17,7 +17,7 @@ namespace Goblin
 		if (this != &rc)
 		{
 			delete resources;
-			resources = new std::map<int, int>(*rc.resources);
+			resources = new std::map<int, float>(*rc.resources);
 		}
 
 		return *this;
@@ -28,12 +28,12 @@ namespace Goblin
 		delete resources;
 	}
 
-	void ResourceComponent::setResource(int type, int amount)
+	void ResourceComponent::setResource(int type, float amount)
 	{
 		(*resources)[type] = amount;	
 	}
 
-	int ResourceComponent::getResourceAmount(int type)
+	float ResourceComponent::getResourceAmount(int type)
 	{
 		return (resources->count(type) == 0) ? 0 : (*resources)[type];
 	}

@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{B6BF89C7-1E89-4163-BACA-846E07F64E17}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{254AF504-FB1D-4B32-ABC1-892834DEC4A8}"
-	ProjectSection(SolutionItems) = preProject
-		tasks.xml = tasks.xml
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoblinGame", "GoblinGame\GoblinGame.vcxproj", "{F466AA02-C6B9-4F7D-A76E-F62218F20224}"
 EndProject
