@@ -1,5 +1,5 @@
 #include "../Engine/Application.h"
-#include "../Core/DebugStream.h"
+#include "../Core/Log.h"
 #include <iostream>
 
 int main()
@@ -18,7 +18,7 @@ int main()
 
 	catch (Goblin::Exception& ex)
 	{
-		Goblin::debug<<"! PANIC: Unhandled exception!\n";
+		Goblin::debug<<Goblin::log<<"PANIC: Unhandled exception!\n";
 		Goblin::debug<<ex.toString()<<"\n";
 	}
 

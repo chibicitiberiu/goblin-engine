@@ -46,21 +46,18 @@
     <Filter Include="Source Files\Game entities\Actions">
       <UniqueIdentifier>{9630f9cd-5d64-4f8d-aefc-033184011f6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{d064d055-377a-4c7d-846b-84229569b7f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{53d13546-ee27-40bc-be23-809d7c4534dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Clamp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>Header Files\Game entities\Components</Filter>
     </ClInclude>
     <ClInclude Include="Build.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BasicEventCallback.h">
@@ -75,20 +72,8 @@
     <ClInclude Include="IEventCallback.h">
       <Filter>Header Files\Events</Filter>
     </ClInclude>
-    <ClInclude Include="DebugStream.h">
-      <Filter>Header Files\Debugging</Filter>
-    </ClInclude>
     <ClInclude Include="IDebugHandler.h">
       <Filter>Header Files\Debugging</Filter>
-    </ClInclude>
-    <ClInclude Include="SmartPtr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ISerializable.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GTypeFactory.h">
       <Filter>Header Files\GoblinType</Filter>
@@ -105,9 +90,6 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Game entities</Filter>
     </ClInclude>
-    <ClInclude Include="IMapProvider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MapCell.h">
       <Filter>Header Files\Game entities</Filter>
     </ClInclude>
@@ -123,14 +105,35 @@
     <ClInclude Include="MovableComponent.h">
       <Filter>Header Files\Game entities\Components</Filter>
     </ClInclude>
+    <ClInclude Include="AliveComponent.h">
+      <Filter>Header Files\Game entities\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Array2.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Clamp.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ISerializable.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPtr.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="IMapProvider.h">
+      <Filter>Header Files\Game entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\GoblinType</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Header Files\Debugging</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exception.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DebugStream.cpp">
-      <Filter>Source Files\Debugging</Filter>
-    </ClCompile>
     <ClCompile Include="GType.cpp">
       <Filter>Source Files\GoblinType</Filter>
     </ClCompile>
@@ -154,6 +157,15 @@
     </ClCompile>
     <ClCompile Include="MovableComponent.cpp">
       <Filter>Source Files\Game entities\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="AliveComponent.cpp">
+      <Filter>Source Files\Game entities\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Source Files\Debugging</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

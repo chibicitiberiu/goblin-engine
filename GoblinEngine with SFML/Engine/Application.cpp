@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include "../Core/DebugStream.h"
+#include "../Core/Log.h"
 #include "DebugHandlers.h"
 
 namespace Goblin

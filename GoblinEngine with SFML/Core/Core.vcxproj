@@ -13,13 +13,14 @@
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="ActionClass.h" />
+    <ClInclude Include="AliveComponent.h" />
     <ClInclude Include="Array2.h" />
     <ClInclude Include="BasicEventCallback.h" />
     <ClInclude Include="Build.h" />
     <ClInclude Include="Clamp.h" />
     <ClInclude Include="ClassEventCallback.h" />
     <ClInclude Include="Component.h" />
-    <ClInclude Include="DebugStream.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="GameObject.h" />
@@ -38,7 +39,8 @@
     <ClInclude Include="SmartPtr.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DebugStream.cpp" />
+    <ClCompile Include="AliveComponent.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MapCell.cpp" />
