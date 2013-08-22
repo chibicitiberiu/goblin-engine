@@ -21,11 +21,6 @@ namespace Goblin
 		return this->height;
 	}
 
-	GameObject& MapCell::getObject()
-	{
-		return *this->object;
-	}
-
 	void MapCell::setTerrainType(int value)
 	{
 		this->terrainType = value;
@@ -34,11 +29,6 @@ namespace Goblin
 	void MapCell::setHeight(float value)
 	{
 		this->height = value;
-	}
-
-	void MapCell::setObject(SmartPtr<GameObject> object)
-	{
-		this->object = object;
 	}
 
 	Object* MapCell::clone() const
