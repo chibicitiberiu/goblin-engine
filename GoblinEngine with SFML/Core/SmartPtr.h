@@ -1,4 +1,5 @@
 #pragma once
+#include "Exception.h"
 
 namespace Goblin
 {
@@ -64,8 +65,12 @@ namespace Goblin
 
 		/// <summary>Gets dereferenced pointer.</summary>
 		/// <returns>The result of the operation.</returns>
+		/// <exception cref="NullReferenceException">Thrown if pointer address is NULL.</exception>
 		T& operator* () const
 		{
+			if (_obj == NULL)
+				throw NullReferenceException("Cannot dereference null pointer.");
+
 			return *this->_obj;
 		}
 
@@ -192,8 +197,16 @@ namespace Goblin
 		/// <summary>Gets element at index.</summary>
 		/// <param name="index">Zero-based index of the array.</param>
 		/// <returns>The indexed value.</returns>
+		/// <exception cref="NullReferenceException">Thrown if pointer address is NULL.</exception>
+		/// <exception cref="ArgumentOutOfRangeException">Thrown if index is greater than size.</exception>
 		T& operator[] (unsigned index) const
 		{
+			if (_obj == NULL)
+				throw NullReferenceException("Cannot dereference null pointer.");
+
+			if (_size != (unsigned)-1 && _size <= index)
+				throw ArgumentOutOfRangeException("Out of range");
+
 			return this->_obj[index];
 		}
 

@@ -2,11 +2,6 @@
 #include "Build.h"
 #include <string>
 
-/// <summary>Creates an instance of exception_class, with source file and line.</summary>
-/// <param name="exception_class">The exception class.</param>
-/// <param name="message">The exception message.</param>
-#define EXCEPTION(exception_class,message) exception_class(message,__FILE__,__LINE__)
-
 namespace Goblin
 {
 	/// <summary>Base exception class.</summary>
@@ -78,13 +73,13 @@ namespace Goblin
 		}
 	};
 
-	/// <summary>Exception for signalling argument out of range errors.</summary>
-	class DLLEXPORT ArgumentOutOfRangeException : public Exception
+	/// <summary>Exception for signalling invalid argument errors.</summary>
+	class DLLEXPORT ArgumentException : public Exception
 	{
 	public:
 		/// <summary>Constructor.</summary>
 		/// <param name="message">The exception message.</param>
-		ArgumentOutOfRangeException(std::string message) 
+		ArgumentException(std::string message) 
 			: Exception(message)
 		{
 		}
@@ -93,8 +88,34 @@ namespace Goblin
 		/// <param name="message">The exception message.</param>
 		/// <param name="source_file">Source file where the exception originated.</param>
 		/// <param name="line">The line on which the exception was thrown.</param>
-		ArgumentOutOfRangeException(std::string message, std::string source_file, unsigned int line)
+		ArgumentException(std::string message, std::string source_file, unsigned int line)
 			: Exception(message, source_file, line)
+		{
+		}
+
+		/// <summary>Destructor.</summary>
+		virtual ~ArgumentException(void)
+		{
+		}
+	};
+
+	/// <summary>Exception for signalling argument out of range errors.</summary>
+	class DLLEXPORT ArgumentOutOfRangeException : public ArgumentException
+	{
+	public:
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		ArgumentOutOfRangeException(std::string message) 
+			: ArgumentException(message)
+		{
+		}
+
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		/// <param name="source_file">Source file where the exception originated.</param>
+		/// <param name="line">The line on which the exception was thrown.</param>
+		ArgumentOutOfRangeException(std::string message, std::string source_file, unsigned int line)
+			: ArgumentException(message, source_file, line)
 		{
 		}
 
@@ -129,4 +150,41 @@ namespace Goblin
 		{
 		}
 	};
+
+	/// <summary>Exception for signalling when an assertion fails.</summary>
+	class DLLEXPORT AssertionFailedException : public Exception
+	{
+	public:
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		AssertionFailedException(std::string message) 
+			: Exception(message)
+		{
+		}
+
+		/// <summary>Constructor.</summary>
+		/// <param name="message">The exception message.</param>
+		/// <param name="source_file">Source file where the exception originated.</param>
+		/// <param name="line">The line on which the exception was thrown.</param>
+		AssertionFailedException(std::string message, std::string source_file, unsigned int line)
+			: Exception(message, source_file, line)
+		{
+		}
+
+		/// <summary>Destructor.</summary>
+		virtual ~AssertionFailedException(void)
+		{
+		}
+	};
+
+
+	/// <summary>Creates an instance of exception_class, with source file and line.</summary>
+	/// <param name="exception_class">The exception class.</param>
+	/// <param name="message">The exception message.</param>
+	#define EXCEPTION(exception_class,message) exception_class((message),__FILE__,__LINE__)
+
+	/// <summary>Throws an AssertionFailedException if the condition is false.</summary>
+	/// <param name="condition">The condition.</param>
+	/// <param name="message">The message.</param>
+	#define ASSERT(condition,message) { if (!(condition)) throw Goblin::AssertionFailedException((message), __FILE__, __LINE__); }
 }

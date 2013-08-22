@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{e0f27b0f-f45e-47eb-9b0f-039eebb4013f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Utils">
+      <UniqueIdentifier>{66b70e0b-55e4-4d9e-8097-ffd311c1a1a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Events">
+      <UniqueIdentifier>{aa7ed1a1-3548-4303-afe9-f3f2d6a1dc37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Debugging">
+      <UniqueIdentifier>{a8039e85-2ee0-4238-8248-b87393c00b02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -27,25 +39,25 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Array2Test.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
     <ClCompile Include="ClampTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ExceptionTest.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
     <ClCompile Include="BasicEventCallbackTest.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Events</Filter>
     </ClCompile>
     <ClCompile Include="ClassEventCallbackTest.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Events</Filter>
     </ClCompile>
     <ClCompile Include="EventTest.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptionTest.cpp">
+      <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
     <ClCompile Include="SmartPtrTest.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

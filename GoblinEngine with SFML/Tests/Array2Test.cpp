@@ -67,6 +67,26 @@ namespace Tests
 
 			arr2.set(0, 0, 100);
 			Assert::AreEqual((int)100, arr2.get(0, 0));
+
+			// Bounds check - getter
+			try {
+				arr1.get(100, 100);
+				Assert::Fail(L"Out of bounds");
+			}
+			catch (Goblin::ArgumentOutOfRangeException&)
+			{
+			}
+
+			// Bounds check - setter
+			try {
+				arr2.set(100, 100, -1);
+				Assert::Fail(L"Out of bounds");
+			}
+			catch (Goblin::ArgumentOutOfRangeException&)
+			{
+			}
+
+
 		}
 
 	};

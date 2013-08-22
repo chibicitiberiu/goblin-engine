@@ -8,6 +8,8 @@
 #ifndef ARRAY2_H_
 #define ARRAY2_H_
 
+#include "Exception.h"
+
 namespace Goblin {
 
 	/// <summary>Bidimensional array.</summary>
@@ -44,6 +46,7 @@ namespace Goblin {
 		/// <summary>Gets the data from the specified location.</summary>
 		/// <param name="x">The column.</param>
 		/// <param name="y">The row.</param>
+		/// <exception cref="ArgumentOutOfRangeException">Thrown if coordinates are outside bounds.</exception>
 		T& get(size_t x, size_t y) const;
 
 		/// <summary>Gets the width of the array.</summary>
@@ -59,6 +62,7 @@ namespace Goblin {
 		/// <param name="x">The column.</param>
 		/// <param name="y">The row.</param>
 		/// <param name="value">The value to set.</param>
+		/// <exception cref="ArgumentOutOfRangeException">Thrown if coordinates are outside bounds.</exception>
 		void set(size_t x, size_t y, const T& value);
 
 	// Assignment operator
@@ -103,7 +107,7 @@ namespace Goblin {
 	{
 		if (this != &a)
 		{
-			delete this->data;
+			delete[] this->data;
 
 			this->w = a.w;
 			this->h = a.h;
@@ -119,18 +123,24 @@ namespace Goblin {
 	template <typename T>
 	Array2<T>::~Array2()
 	{
-		delete this->data;
+		delete[] this->data;
 	}
 
 	template <typename T>
 	T& Array2<T>::get(size_t x, size_t y) const
 	{
+		if (x >= w || y >= h)
+			throw ArgumentOutOfRangeException("Position out of range");
+
 		return this->data[y * this->w + x];
 	}
 
 	template <typename T>
 	void Array2<T>::set(size_t x, size_t y, const T& value)
 	{
+		if (x >= w || y >= h)
+			throw ArgumentOutOfRangeException("Position out of range");
+
 		this->data[y * this->w + x] = value;
 	}
 
