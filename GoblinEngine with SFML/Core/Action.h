@@ -3,6 +3,8 @@
 #include "SmartPtr.h"
 #include <SFML\Graphics.hpp>
 
+using sf::Vector2f;
+
 namespace Goblin
 {
 	class GameObject;
@@ -36,6 +38,11 @@ namespace Goblin
 		/// for example if a certain time has passed.</remarks>
 		/// <returns>True if finished, false if not.</returns>
 		virtual bool isFinished() = 0;
+
+		/// <summary>Each action happens in a specific location. The object will first
+		/// move to this location, before beginning the action.</summary>
+		/// <returns>The action location.</returns>
+		virtual Vector2f getActionLocation() = 0;
 
 		/// <summary>Gets the estimated time remaining of the current action.</summary>
 		/// <returns>A pointer to a time structure, or NULL if not available.</returns>

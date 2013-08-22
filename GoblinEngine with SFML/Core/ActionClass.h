@@ -26,6 +26,12 @@ namespace Goblin
 		/// <returns>The cost.</returns>
 		virtual float getResourceCost(int resourceType) = 0;
 
+		/// <summary>Determines if action requires a target.</summary>
+		/// <returns>True if the action requires a target.</returns>
+		/// <remarks>Some actions require a target object. For example, an 'attack'
+		/// action would require a target enemy.</remarks>
+		virtual bool requiresTarget() = 0;
+
 		/// <summary>Determine if we can create an action.</summary>
 		/// <param name="object">The game object.</param>
 		/// <remarks>This is used to determine whether the action should be displayed
