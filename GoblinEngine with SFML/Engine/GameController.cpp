@@ -28,7 +28,6 @@ namespace Goblin
 		// Create containers
 		players = new PlayersContainer();
 		objects = new ObjectsContainer();
-		selectedObjects = new SelectedObjectsContainer();
 		actionQueue = new ActionQueueContainer();
 	}
 
@@ -36,7 +35,6 @@ namespace Goblin
 	{
 		delete players;
 		delete objects;
-		delete selectedObjects;
 		delete map;
 		delete actionQueue;
 	}
@@ -46,15 +44,12 @@ namespace Goblin
 		return pos.x + pos.y * mapSize.x;
 	}
 
-	void GameController::addPlayer(SmartPtr<Player> player)
+	Player::PlayerId GameController::addPlayer(std::string name, Color color)
 	{
-		this->players->push_back(player);
-	}
+		Player::PlayerId id = static_cast<Player::PlayerId>(this->players->size());
+		this->players->push_back(SmartPtr<Player>(new Player(id, name, color)));
 
-	void GameController::addPlayer(Player::PlayerKind kind, std::string name, Color color)
-	{
-		Player* player = new Player(kind, name, color);
-		this->players->push_back(SmartPtr<Player>(player));
+		return id;
 	}
 
 	Vector2u GameController::getMapSize() const
@@ -105,7 +100,7 @@ namespace Goblin
 		return Vector2u(xx, yy);
 	}
 
-	void GameController::select(bool add_to_selection, FloatRect area_absolute)
+	void GameController::select(Player::PlayerId pid, bool add_to_selection, FloatRect area_absolute)
 	{
 		// Get corresponding eclls
 		Vector2u topLeft = absoluteToCell(area_absolute.left, area_absolute.top);
@@ -113,7 +108,7 @@ namespace Goblin
 
 		// Clear selection?
 		if (!add_to_selection)
-			selectedObjects->clear();
+			players->at(pid)->selectedObjects->clear();
 
 		// Add objects to selection
 		Vector2u v;
@@ -134,17 +129,17 @@ namespace Goblin
 						Vector2f pos = mec->getAbsolutePosition();
 					
 						// If inside selection and not already selected
-						if (area_absolute.contains(pos) && (std::count(selectedObjects->begin(), selectedObjects->end(), it->second) == 0))
+						if (area_absolute.contains(pos) && (std::count(players->at(pid)->selectedObjects->begin(), players->at(pid)->selectedObjects->end(), it->second) == 0))
 						{
 							// Select
-							selectedObjects->push_back(it->second);
+							players->at(pid)->selectedObjects->push_back(it->second);
 						}
 					}
 				}
 			}
 	}
 
-	void GameController::move(Vector2f dest)
+	void GameController::move(Player::PlayerId pid, Vector2f dest)
 	{
 	}
 

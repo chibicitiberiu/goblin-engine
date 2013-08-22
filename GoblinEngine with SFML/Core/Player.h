@@ -1,10 +1,9 @@
 #pragma once
 
-#include "Object.h"
-#include <SFML\Graphics.hpp>
-#include "Build.h"
 #include <string>
 #include <map>
+#include <SFML\Graphics.hpp>
+#include "GameObject.h"
 
 using sf::Color;
 
@@ -13,34 +12,38 @@ namespace Goblin
 	class DLLEXPORT Player : public Object
 	{
 	public:
-
-		enum PlayerKind {
-			NeutralPlayer, HumanPlayer, AIPlayer, NetworkPlayer
-		};
+		typedef int PlayerId;
 
 	private:
-		Color color;
-		PlayerKind kind;
-		std::string name;
-		std::map<int, float> resources;
 
+		// Player's id
+		PlayerId id;
+
+		// Player's name
+		std::string name;
+
+		// Player's color
+		Color color;
+
+		// Player's total resources
+		typedef std::map<int, float> ResourceDictionary;
+		ResourceDictionary resources;
+		
 	public:
-		Player();
-		Player(PlayerKind kind, std::string name="Player", Color color=Color());
+		// List of selected objects. Each object must be unique.
+		typedef std::vector<SmartPtr<GameObject> > SelectedObjectsContainer;
+		SelectedObjectsContainer* selectedObjects;
+
+		Player(PlayerId id, std::string name="Player", Color color=Color());
 		virtual ~Player();
 
 		void setColor(Color value);
-		void setPlayerKind(PlayerKind value);
 		void setName(const std::string& value);
 
 		Color getColor() const;
-		PlayerKind getPlayerKind() const;
 		std::string getName() const;
 
-		virtual Object* clone() const
-		{
-			return new Player(*this);
-		}
+		virtual Object* clone() const override;
 	};
 
 }

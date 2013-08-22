@@ -2,13 +2,8 @@
 
 namespace Goblin 
 {
-	Player::Player()
-		: color(), kind(HumanPlayer), name("Player")
-	{
-	}
-
-	Player::Player(PlayerKind kind, std::string name, Color color)
-		: color(color), kind(kind), name(name)
+	Player::Player(Player::PlayerId id, std::string name, Color color)
+		: id(id), name(name), color(color)
 	{
 	}
 
@@ -19,11 +14,6 @@ namespace Goblin
 	void Player::setColor(Color value)
 	{
 		this->color = value;
-	}
-
-	void Player::setPlayerKind(PlayerKind value)
-	{
-		this->kind = value;
 	}
 
 	void Player::setName(const std::string& value)
@@ -37,14 +27,14 @@ namespace Goblin
 		return this->color;
 	}
 
-	Player::PlayerKind Player::getPlayerKind() const
-	{
-		return this->kind;
-	}
-
 	std::string Player::getName() const
 	{
 		return this->name;
+	}
+
+	Object* Player::clone() const
+	{
+		return new Player(*this);
 	}
 
 }

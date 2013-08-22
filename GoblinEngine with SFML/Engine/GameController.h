@@ -24,10 +24,6 @@ namespace Goblin
 		typedef std::vector<SmartPtr<Player> > PlayersContainer;
 		PlayersContainer* players;
 		
-		// List of selected objects. Must be unique.
-		typedef std::vector<SmartPtr<GameObject> > SelectedObjectsContainer;
-		SelectedObjectsContainer* selectedObjects;
-		
 		// Game map. A bidimensional array.
 		typedef Array2<MapCell> MapType;
 		MapType* map;
@@ -62,8 +58,7 @@ namespace Goblin
 		virtual ~GameController(void);
 
 		// Players
-		virtual void addPlayer(SmartPtr<Player> player);
-		virtual void addPlayer(Player::PlayerKind kind, std::string name, Color color);
+		virtual Player::PlayerId addPlayer(std::string name, Color color);
 
 		virtual Vector2u getMapSize() const;
 		virtual Vector2f getCellSize() const;
@@ -80,8 +75,8 @@ namespace Goblin
 		virtual void addAction(SmartPtr<GameObject> object, SmartPtr<Action> action);
 
 		// Interactions
-		virtual void select(bool add_to_selection, FloatRect area_absolute);
-		virtual void move(Vector2f dest);
+		virtual void select(Player::PlayerId, bool add_to_selection, FloatRect area_absolute);
+		virtual void move(Player::PlayerId, Vector2f dest);
 
 		virtual void tick(const sf::Time& elapsed);
 
