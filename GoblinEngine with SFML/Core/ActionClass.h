@@ -9,6 +9,14 @@ namespace Goblin
 	{
 	public:
 
+		enum TargetType
+		{
+			None,
+			Position,
+			Enemy,
+			GameObject
+		};
+
 		/// <summary>Gets the action's icon.</summary>
 		/// <returns>The icon.</returns>
 		virtual SmartPtr<sf::Image> getIcon() = 0;
@@ -27,22 +35,22 @@ namespace Goblin
 		virtual float getResourceCost(int resourceType) = 0;
 
 		/// <summary>Determines if action requires a target.</summary>
-		/// <returns>True if the action requires a target.</returns>
+		/// <returns>The target type.</returns>
 		/// <remarks>Some actions require a target object. For example, an 'attack'
 		/// action would require a target enemy.</remarks>
-		virtual bool requiresTarget() = 0;
+		virtual TargetType targetType() = 0;
 
 		/// <summary>Determine if we can create an action.</summary>
 		/// <param name="object">The game object.</param>
 		/// <remarks>This is used to determine whether the action should be displayed
 		/// in the action list.</remarks>
 		/// <returns>True if we can create an action, false if not.</returns>
-		virtual bool canCreateAction(SmartPtr<GameObject> object) = 0;
+		virtual bool canCreateAction(Goblin::GameObject* object, const GameController* ctrl) = 0;
 
 		/// <summary>Creates an action of this class.</summary>
 		/// <param name="object">The game object.</param>
 		/// <returns>The created action.</returns>
-		virtual SmartPtr<Action> createAction(SmartPtr<GameObject> object) = 0;
+		virtual SmartPtr<Action> createAction(Goblin::GameObject* object, const GameController* ctrl) = 0;
 		
 		/// <summary>Destructor.</summary>
 		virtual ~ActionClass(void)

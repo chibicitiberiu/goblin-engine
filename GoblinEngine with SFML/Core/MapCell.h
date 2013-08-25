@@ -14,6 +14,13 @@ namespace Goblin
 		int terrainType;
 		float height;
 
+		// Underground resources
+	public:
+		typedef std::map<int, float> ResourceDictionary;
+	
+	private:
+		ResourceDictionary* _undergroundResources;
+
 	public:
 	// Constructors
 		/// <summary>Default constructor.</summary>

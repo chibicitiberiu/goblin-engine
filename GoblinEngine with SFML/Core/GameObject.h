@@ -9,6 +9,8 @@
 
 namespace Goblin
 {
+	class Player;
+
 	class DLLEXPORT GameObject : public Object
 	{
 	public:
@@ -20,6 +22,7 @@ namespace Goblin
 		
 		ComponentContainer* components;
 		ActionClassContainer* actions;
+		Player* player;
 
 	public:
 
@@ -105,6 +108,15 @@ namespace Goblin
 		/// <summary>Gets an iterator to the end of the action classes list.</summary>
 		/// <returns>An iterator to the position after the last action class.</returns>
 		ActionClassContainer::iterator actionsEnd() const;
+
+	// Player
+		/// <summary>Gets the owner player.</summary>
+		/// <returns>The player.</returns>
+		virtual Player* getPlayer() const;
+
+		/// <summary>Sets the owner player.</summary>
+		/// <param name="value">The player.</param>
+		virtual void setPlayer(Player* value);
 
 	// Object
 		/// <summary>Creates a clone of this object.</summary>

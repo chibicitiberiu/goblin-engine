@@ -7,100 +7,41 @@
 
 namespace Goblin
 {
-	GameController::GameController(unsigned width, unsigned height) 
+	GameController::GameController(ISceneProvider& sceneProvider) 
+		: _scene(sceneProvider.getScene())
 	{
-		cellSize = Vector2f(1.0f, 1.0f);
-		mapSize = Vector2u(width, height);
-		map = new MapType(width, height);
-		initialize();
-	}
-
-	GameController::GameController(IMapProvider& mapProvider)
-	{
-		cellSize = mapProvider.getCellSize();
-		mapSize = mapProvider.getSize();
-		map = new MapType(mapSize.x, mapSize.y);
-		initialize();
-	}
-
-	void GameController::initialize()
-	{	
-		// Create containers
-		players = new PlayersContainer();
-		objects = new ObjectsContainer();
-		actionQueue = new ActionQueueContainer();
 	}
 
 	GameController::~GameController(void)
 	{
-		delete players;
-		delete objects;
-		delete map;
-		delete actionQueue;
 	}
 
-	unsigned GameController::toObjectIndex(Vector2u pos)
+	//unsigned GameController::toObjectIndex(Vector2u pos)
+	//{
+	//	return pos.x + pos.y * mapSize.x;
+	//}
+
+	Scene& GameController::scene()
 	{
-		return pos.x + pos.y * mapSize.x;
+		return *_scene;
 	}
 
 	Player::PlayerId GameController::addPlayer(std::string name, Color color)
 	{
-		Player::PlayerId id = static_cast<Player::PlayerId>(this->players->size());
-		this->players->push_back(SmartPtr<Player>(new Player(id, name, color)));
+		// Get player id
+		Player::PlayerId id = static_cast<Player::PlayerId>(_scene->players().size());
 
+		// Create player
+		SmartPtr<Player> player = new Player(id, name, color);
+
+		// Add player to player list
+		_scene->players().push_back(player);
+
+		// Return id
 		return id;
 	}
 
-	Vector2u GameController::getMapSize() const
-	{
-		return Vector2u(map->getWidth(), map->getHeight());
-	}
-
-	Vector2f GameController::getCellSize() const
-	{
-		return this->cellSize;
-	}
-
-	MapCell& GameController::getCell(Vector2u cell)
-	{
-		return map->get(cell.x, cell.y);
-	}
-
-	MapCell& GameController::getCell(unsigned x, unsigned y)
-	{
-		return map->get(x, y);
-	}
-		
-	Vector2f GameController::cellToAbsolute(Vector2u cell)
-	{
-		float xx = static_cast<float>(cell.x) * cellSize.x;
-		float yy = static_cast<float>(cell.y) * cellSize.y;
-		return Vector2f(xx, yy);
-	}
-
-	Vector2f GameController::cellToAbsolute(unsigned x, unsigned y)
-	{
-		float xx = static_cast<float>(x) * cellSize.x;
-		float yy = static_cast<float>(y) * cellSize.y;
-		return Vector2f(xx, yy);
-	}
-
-	Vector2u GameController::absoluteToCell(Vector2f coord)
-	{
-		unsigned xx = static_cast<unsigned> (coord.x / cellSize.x);
-		unsigned yy = static_cast<unsigned> (coord.y / cellSize.y);
-		return Vector2u(xx, yy);
-	}
-
-	Vector2u GameController::absoluteToCell(float x, float y)
-	{
-		unsigned xx = static_cast<unsigned> (x / cellSize.x);
-		unsigned yy = static_cast<unsigned> (y / cellSize.y);
-		return Vector2u(xx, yy);
-	}
-
-	void GameController::select(Player::PlayerId pid, bool add_to_selection, FloatRect area_absolute)
+/*	void GameController::select(Player::PlayerId pid, bool add_to_selection, FloatRect area_absolute)
 	{
 		// Get corresponding eclls
 		Vector2u topLeft = absoluteToCell(area_absolute.left, area_absolute.top);
@@ -195,7 +136,7 @@ namespace Goblin
 	void GameController::tick(const sf::Time& elapsed)
 	{
 		actionsTick(elapsed);
-	}
+	}*/
 
 	Object* GameController::clone() const
 	{

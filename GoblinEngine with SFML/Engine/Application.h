@@ -16,7 +16,6 @@ namespace Goblin {
 
 		sf::RenderWindow mainWindow;
 		GuiController gui;
-		GameController game;
 
 		float fps;
 

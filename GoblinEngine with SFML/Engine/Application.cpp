@@ -11,7 +11,6 @@ namespace Goblin
 	 * Constructor                     *
 	 ***********************************/
 	Application::Application()
-		: game(1000, 1000)
 	{
 		this->stop_flag = false;
 		this->fps = 0;

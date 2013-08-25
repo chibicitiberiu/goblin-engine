@@ -8,6 +8,7 @@ using sf::Vector2f;
 namespace Goblin
 {
 	class GameObject;
+	class GameController;
 
 	/// <summary>An action which is being performed by a game object.</summary>
 	/// <remarks>This class defines the logic behind the action, as opposed to
@@ -16,16 +17,19 @@ namespace Goblin
 	{
 	public:
 
-		/// <summary>Sets the game object linked to this action.</summary>
-		/// <param name="obj">The game object.</param>
-		/// <remarks>This function sets the game object which is linked to this action.
-		/// The state of the game object may change until the action is executed.</remarks>
-		virtual void setObject(SmartPtr<GameObject> obj) = 0;
+		/// <summary>Executed when object is created.</summary>
+		/// <param name="object">The game object on which the action is performed.</param>
+		/// <param name="ctrl">The game state.</param>
+		virtual void onInitialize(Goblin::GameObject* object, const GameController* ctrl) 
+		{
+		}
 
 		/// <summary>Executed just before the action starts.</summary>
+		/// <param name="object">The game object on which the action is performed.</param>
+		/// <param name="ctrl">The game state.</param>
 		/// <remarks>This function can be overriden to perform initializing when the state 
 		/// of the game object is required.</remarks>
-		virtual void onActionStarted()
+		virtual void onActionStarted(Goblin::GameObject* object, const GameController* ctrl)
 		{
 		}
 
@@ -42,7 +46,17 @@ namespace Goblin
 		/// <summary>Each action happens in a specific location. The object will first
 		/// move to this location, before beginning the action.</summary>
 		/// <returns>The action location.</returns>
-		virtual Vector2f getActionLocation() = 0;
+		virtual Vector2f getActionLocation()
+		{
+			return Vector2f(0.0f, 0.0f);
+		}
+
+		/// <summary>Gets the action's target object.</summary>
+		/// <returns>NULL if object doesn't have a target object, else the target object.</returns>
+		virtual GameObject* getTargetObject()
+		{
+			return NULL;
+		}
 
 		/// <summary>Gets the estimated time remaining of the current action.</summary>
 		/// <returns>A pointer to a time structure, or NULL if not available.</returns>

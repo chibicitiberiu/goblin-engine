@@ -35,6 +35,16 @@ namespace Goblin
 		return actions->end();
 	}
 
+	Player* GameObject::getPlayer() const
+	{
+		return this->player;
+	}
+
+	void GameObject::setPlayer(Player* value)
+	{
+		this->player = value;
+	}
+
 	Object* GameObject::clone() const
 	{
 		return new GameObject(*this);

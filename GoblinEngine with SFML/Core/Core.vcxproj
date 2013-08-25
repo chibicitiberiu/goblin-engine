@@ -26,7 +26,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IEventCallback.h" />
     <ClInclude Include="IDebugHandler.h" />
-    <ClInclude Include="IMapProvider.h" />
+    <ClInclude Include="ISceneProvider.h" />
     <ClInclude Include="MapCell.h" />
     <ClInclude Include="MapEntityComponent.h" />
     <ClInclude Include="MovableComponent.h" />
@@ -36,6 +36,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="ISerializable.h" />
     <ClInclude Include="ResourceComponent.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="SmartPtr.h" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +51,7 @@
     <ClCompile Include="MovableComponent.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourceComponent.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B6BF89C7-1E89-4163-BACA-846E07F64E17}</ProjectGuid>
