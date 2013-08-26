@@ -2,7 +2,7 @@
 
 
 DummyApplication::DummyApplication(void)
-	: game(sceneProvider)
+	: game(sceneProvider), renderer(game.scene(), resources)
 {
 }
 

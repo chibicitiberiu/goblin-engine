@@ -90,6 +90,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DummyApplication.cpp" />
+    <ClCompile Include="DummyResourceManager.cpp" />
     <ClCompile Include="DummySceneProvider.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -103,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DummyApplication.h" />
+    <ClInclude Include="DummyResourceManager.h" />
     <ClInclude Include="DummySceneProvider.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
