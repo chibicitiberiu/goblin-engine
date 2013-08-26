@@ -20,6 +20,7 @@
     <ClInclude Include="Clamp.h" />
     <ClInclude Include="ClassEventCallback.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="IResourceManager.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Exception.h" />
