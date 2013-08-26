@@ -10,7 +10,7 @@ using sf::Vector2u;
 
 namespace Goblin
 {
-	class Scene : public Object
+	class DLLEXPORT Scene : public Object
 	{
 		// Player list
 	public:
@@ -118,6 +118,11 @@ namespace Goblin
 		/// <param name="y">The absolute y coordinate.</param>
 		/// <returns>Cell position.</returns>
 		virtual Vector2u toCell(float x, float y) const;
+
+	// Object
+		/// <summary>Creates a clone of this object.</summary>
+		/// <returns>The cloned object.</returns>
+		virtual Object* clone() const override;
 	};
 
 }

@@ -131,12 +131,12 @@ namespace Goblin
 					}
 			}
 		}
-	}
+	}*/
 
 	void GameController::tick(const sf::Time& elapsed)
 	{
-		actionsTick(elapsed);
-	}*/
+		// actionsTick(elapsed);
+	}
 
 	Object* GameController::clone() const
 	{
