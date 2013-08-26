@@ -135,6 +135,9 @@
     <ClInclude Include="ISceneProvider.h">
       <Filter>Header Files\Game entities</Filter>
     </ClInclude>
+    <ClInclude Include="IResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GType.cpp">
