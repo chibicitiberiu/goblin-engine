@@ -4,21 +4,32 @@
 DummyResourceManager::DummyResourceManager(void)
 {
 	// Create a resource
-	sf::Image* img = new sf::Image();
-	img->create(100, 100);
+	sf::Image* img1 = new sf::Image();
+	sf::Image* img2 = new sf::Image();
+	sf::Image* img3 = new sf::Image();
+	img1->create(100, 100);
+	img2->create(100, 100);
+	img3->create(100, 100);
 		
 	for (unsigned i = 0; i < 100; i++)
 		for (unsigned j = 0; j < 100; j++)
-			img->setPixel(j, i, sf::Color(i%256, j%256, (i+j)%256));
+		{
+			img1->setPixel(j, i, sf::Color(i%256, j%256, (i+j)%256));
+			img2->setPixel(j, i, sf::Color(i%256, (i+j)%256, j%256));
+			img3->setPixel(j, i, sf::Color((i+j)%256, i%256, j%256));
+		}
 
 	// Add to dictionary
-	data["img"] = img;
+	data["texture0"] = img1;
+	data["texture1"] = img2;
+	data["texture2"] = img3;
 }
-
 
 DummyResourceManager::~DummyResourceManager(void)
 {
-	delete (sf::Image*) data["img"];
+	delete (sf::Image*) data["texture0"];
+	delete (sf::Image*) data["texture1"];
+	delete (sf::Image*) data["texture2"];
 }
 
 void* DummyResourceManager::getResource(std::string key)
