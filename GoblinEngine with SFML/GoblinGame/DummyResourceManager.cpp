@@ -20,16 +20,16 @@ DummyResourceManager::DummyResourceManager(void)
 		}
 
 	// Add to dictionary
-	data["texture0"] = img1;
-	data["texture1"] = img2;
-	data["texture2"] = img3;
+	data["terrain0"] = img1;
+	data["terrain1"] = img2;
+	data["terrain2"] = img3;
 }
 
 DummyResourceManager::~DummyResourceManager(void)
 {
-	delete (sf::Image*) data["texture0"];
-	delete (sf::Image*) data["texture1"];
-	delete (sf::Image*) data["texture2"];
+	delete (sf::Image*) data["terrain0"];
+	delete (sf::Image*) data["terrain1"];
+	delete (sf::Image*) data["terrain2"];
 }
 
 void* DummyResourceManager::getResource(std::string key)

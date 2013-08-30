@@ -4,8 +4,10 @@
 #include <map>
 #include <SFML\Graphics.hpp>
 #include "GameObject.h"
+#include "Array2.h"
 
 using sf::Color;
+using sf::FloatRect;
 
 namespace Goblin
 {
@@ -39,6 +41,10 @@ namespace Goblin
 	private:
 		SelectedObjectsContainer* _selectedObjects;
 
+		// Array of visible-to-player and explored areas
+		Array2<float>* _visible;
+		Array2<float>* _explored;
+
 	public:
 	// Constructor
 		/// <summary>Constructor.</summary>
@@ -50,10 +56,15 @@ namespace Goblin
 		/// <summary>Destructor.</summary>
 		virtual ~Player();
 
+		/// <summary>Creates map of visible and explored cells.</summary>
+		/// <param name="map_width">Width of the map.</param>
+		/// <param name="map_height">Height of the map.</param>
+		virtual void createVisibleExplored(size_t map_width, size_t map_height);
+
 	// Setters
 		/// <summary>Sets player's color.</summary>
 		/// <param name="value">The color.</param>
-		virtual void setColor(Color value);
+		virtual void setColor(const Color& value);
 
 		/// <summary>Sets player's name.</summary>
 		/// <param name="value">The name.</param>
@@ -79,6 +90,22 @@ namespace Goblin
 		/// <summary>Gets the selected objects.</summary>
 		/// <returns>Selected objects.</returns>
 		virtual SelectedObjectsContainer& selectedObjects();
+
+		/// <summary>Gets the map of explored cells.</summary>
+		/// <returns>The map of explored cells.</returns>
+		virtual Array2<float>& explored();
+
+		/// <summary>Query if this object has an 'explored' map.</summary>
+		/// <returns>True if it has, false if not.</returns>
+		virtual bool hasExploredMap() const;
+
+		/// <summary>Gets the map of cells visible to the player.</summary>
+		/// <returns>The map of visible cells.</returns>
+		virtual Array2<float>& visible();
+
+		/// <summary>Query if this object has visible map.</summary>
+		/// <returns>True if it has visible map, false if not.</returns>
+		virtual bool hasVisibleMap() const;
 
 	// Object
 		/// <summary>Creates a clone of this object.</summary>
