@@ -8,6 +8,9 @@ using sf::Color;
 
 namespace Goblin
 {
+	/// <summary>
+	/// Render engine
+	/// </summary>
 	class DLLEXPORT RenderEngine
 	{
 	private:
@@ -24,7 +27,9 @@ namespace Goblin
 
 		// The map
 		bool _mapNeedsRendering;
+		bool _mapFinishedRendering;
 		Array2<sf::Texture>* _mapTextures;
+		sf::Thread* _mapRenderingThread;
 
 		// Resources
 		IResourceManager& _resources;
@@ -74,10 +79,35 @@ namespace Goblin
 		/// a game map cell.</remarks>
 		void renderMapArea(unsigned left, unsigned top, unsigned right, unsigned bottom);
 
+		/// <summary>
+		/// Renders the whole game map.
+		/// </summary>
+		void renderMap();
+
+		/// <summary>
+		/// Renders the whole game map asynchronously.
+		/// </summary>
+		void renderMapAsync();
+
 	public:
+		
+		/// <summary>
+		/// Initializes a new instance of the <see cref="RenderEngine"/> class.
+		/// </summary>
+		/// <param name="resources">A resource manager.</param>
+		/// <param name="scene">The scene.</param>
+		/// <param name="player">The player.</param>
 		RenderEngine(IResourceManager& resources, Scene& scene, Player::PlayerId player);
+		
+		/// <summary>
+		/// Destructor.
+		/// </summary>
 		virtual ~RenderEngine();
 
+		/// <summary>
+		/// Renders on the specified target.
+		/// </summary>
+		/// <param name="target">The target.</param>
 		virtual void render(sf::RenderTarget& target);
 	};
 

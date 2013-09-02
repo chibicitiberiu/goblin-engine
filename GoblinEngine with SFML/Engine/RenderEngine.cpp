@@ -1,15 +1,19 @@
 #include "RenderEngine.h"
 #include "../Core/Log.h"
 #include <sstream>
+#include <Windows.h>
+#include <GL/GL.h>
 
 namespace Goblin
 {
 	RenderEngine::RenderEngine(IResourceManager& resources, Scene& scene, Player::PlayerId player)
 		: _scene(scene), 
 		  _player(player),
-		  _viewport(0, 0, 1000, 1000),
+		  _viewport(400, 0, 1000, 1000),
 		  _mapNeedsRendering(true),
+		  _mapFinishedRendering(false),
 		  _mapTextures(NULL),
+		  _mapRenderingThread(NULL),
 		  _resources(resources)
 	{
 		float w = ceilf((scene.getSizeAbsolute().x * 2) / static_cast<float>(_mapTextureSize));
@@ -21,6 +25,9 @@ namespace Goblin
 	RenderEngine::~RenderEngine()
 	{
 		delete _mapTextures;
+
+		if (_mapRenderingThread != NULL)
+			delete _mapRenderingThread;
 	}
 
 	Vector2f RenderEngine::iso(Vector2f coord)
@@ -92,7 +99,7 @@ namespace Goblin
 		Vector2f c = cart(Vector2f(xx, yy));
 
 		// Get cartesian map pixel
-		if (0 <= c.x && c.x < size.x && y <= c.y && c.y < size.y)
+		if (0 <= c.x && c.x < size.x && 0 <= c.y && c.y < size.y)
 			return getCartMapPixel(c.x, c.y);
 		
 		return Color();
@@ -114,12 +121,9 @@ namespace Goblin
 			}
 		}
 
-		// Create texture
-		sf::Texture texture;
-		texture.loadFromImage(img);
-
-		// Place texture
-		_mapTextures->set(cell_x, cell_y, texture);
+		// Load texture
+		if (!_mapTextures->get(cell_x, cell_y).loadFromImage(img))
+			debug<<Goblin::log<<"Failed to load texture ("<<cell_x<<", "<<cell_y<<").\n";
 	}
 
 	void RenderEngine::renderMapArea(unsigned left, unsigned top, unsigned right, unsigned bottom)
@@ -129,26 +133,42 @@ namespace Goblin
 				renderMapCell(x, y);
 	}
 
+	void RenderEngine::renderMap()
+	{
+		sf::Clock clock;
+		debug<<Goblin::log<<"Started rendering game map.\n";
+		renderMapArea(0, 0, _mapTextures->getWidth(), _mapTextures->getHeight());
+		debug<<Goblin::log<<"Finished rendering game map ("<<clock.getElapsedTime().asMilliseconds()<<" ms).\n";
+
+		glFlush();
+		_mapFinishedRendering = true;
+	}
+
+	void RenderEngine::renderMapAsync()
+	{
+		if (_mapRenderingThread != NULL)
+			delete _mapRenderingThread;
+
+		_mapRenderingThread = new sf::Thread(&RenderEngine::renderMap, this);
+		_mapRenderingThread->launch();
+	}
+
 	void RenderEngine::render(sf::RenderTarget& target)
 	{
 		if (_mapNeedsRendering)
 		{
-			sf::Clock clock;
-
-			renderMapArea(0, 0, _mapTextures->getWidth(), _mapTextures->getHeight());
+			renderMapAsync();
 			_mapNeedsRendering = false;
-
-			debug<<Goblin::log<<"Rendering map took: "<<clock.getElapsedTime().asMilliseconds()<<" ms.\n";
 		}
 
-		for (unsigned y = 0; y < _mapTextures->getHeight(); y++)
-			for (unsigned x = 0; x < _mapTextures->getWidth(); x++)
-			{
-				sf::Sprite spr(_mapTextures->get(x, y));
-				spr.setPosition(static_cast<float>(x * _mapTextureSize) - _viewport.left, static_cast<float>(y * _mapTextureSize) - _viewport.top);
-				target.draw(spr);
-			}
-
+		if (_mapFinishedRendering)
+			for (unsigned y = 0; y < _mapTextures->getHeight(); y++)
+				for (unsigned x = 0; x < _mapTextures->getWidth(); x++)
+				{
+					sf::Sprite spr(_mapTextures->get(x, y));
+					spr.setPosition(static_cast<float>(x * _mapTextureSize) - _viewport.left, static_cast<float>(y * _mapTextureSize) - _viewport.top);
+					target.draw(spr);
+				}
 		// Todo: draw only visible cells
 	}
 }
