@@ -11,6 +11,7 @@ namespace Goblin
 	 * Constructor                     *
 	 ***********************************/
 	Application::Application()
+		: background(sf::Color::Black)
 	{
 		this->stop_flag = false;
 		this->fps = 0;
@@ -40,7 +41,7 @@ namespace Goblin
 	{
 	}
 
-	void Application::dispose()
+	void Application::onClose()
 	{
 	}
 
@@ -52,7 +53,7 @@ namespace Goblin
 		// Initialize
 		if (!this->initialize())
 		{
-			this->dispose();
+			this->onClose();
 			return -1;
 		}
 
@@ -76,11 +77,13 @@ namespace Goblin
 			onLogicUpdate(elapsed);
 
 			// Update graphics
+			onRenderBegin(elapsed);
 			onRender(elapsed);
+			onRenderEnd(elapsed);
 		}
 
 		// Cleanup
-		this->dispose();
+		this->onClose();
 		return 0;
 	}
 
@@ -149,15 +152,20 @@ namespace Goblin
 	/***********************************
 	 * Renderer                        *
 	 ***********************************/
-	void Application::onRender(sf::Time& elapsed)
+	void Application::onRenderBegin(sf::Time&)
 	{
 		mainWindow.clear(sf::Color::Black);
-		
-		
+	}
+
+	void Application::onRenderEnd(sf::Time&)
+	{
+		mainWindow.display();
+	}
+
+	void Application::onRender(sf::Time& elapsed)
+	{
 		// Render gui
 		gui.onRender(mainWindow, elapsed);
-
-		mainWindow.display();
 	}
 
 	/***********************************

@@ -1,4 +1,4 @@
-#include "../Engine/Application.h"
+#include "DummyApplication.h"
 #include "../Core/Log.h"
 #include <iostream>
 
@@ -10,7 +10,7 @@ int main()
 	freopen_s(&stream, "stderr.log", "w", stderr);
 
 	// Run game
-	Goblin::Application app;
+	DummyApplication app;
 	
 	try {
 		app.main();

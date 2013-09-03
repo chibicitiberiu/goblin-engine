@@ -45,8 +45,8 @@ namespace Goblin
 		virtual void move(Player::PlayerId, Vector2f dest);
 
 		// Tick
-		virtual void actionsTick(const sf::Time& elapsed);
-		virtual void tick(const sf::Time& elapsed); */
+		virtual void actionsTick(const sf::Time& elapsed);*/
+		virtual void tick(const sf::Time& elapsed); 
 
 		// Object
 		virtual Object* clone() const;

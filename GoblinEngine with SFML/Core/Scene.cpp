@@ -88,4 +88,9 @@ namespace Goblin
 		p.y = static_cast<unsigned>(y * static_cast<float>(_sizeCells.y) / _sizeAbsolute.y);
 		return p;
 	}
+
+	Object* Scene::clone() const
+	{
+		return new Scene(*this);
+	}
 }

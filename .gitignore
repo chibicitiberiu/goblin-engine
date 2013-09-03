@@ -53,6 +53,8 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+*.suo
+*.user
 
 # Visual Studio profiler
 *.psess
