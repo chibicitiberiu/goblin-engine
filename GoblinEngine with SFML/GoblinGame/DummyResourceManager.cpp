@@ -40,11 +40,19 @@ void* DummyResourceManager::getResource(std::string key)
 	return NULL;
 }
 
+DummyResourceManager::ResourceType DummyResourceManager::getResourceType(std::string key)
+{
+	if (data.count(key) != 0)
+		return ResourceTypeImage;
+
+	return ResourceTypeNone;
+}
+
 bool DummyResourceManager::isLoaded(std::string key)
 {
 	return (data.count(key) != 0);
 }
 
-void DummyResourceManager::loadResource(std::string key, std::string filename)
+void DummyResourceManager::loadResource(std::string key, std::string filename, int hints)
 {
 }
