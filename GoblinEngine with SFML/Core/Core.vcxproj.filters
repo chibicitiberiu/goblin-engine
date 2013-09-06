@@ -138,6 +138,9 @@
     <ClInclude Include="IResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DrawableComponent.h">
+      <Filter>Header Files\Game entities\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GType.cpp">
@@ -175,6 +178,9 @@
     </ClCompile>
     <ClCompile Include="MapCell.cpp">
       <Filter>Source Files\Game entities</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableComponent.cpp">
+      <Filter>Source Files\Game entities\Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

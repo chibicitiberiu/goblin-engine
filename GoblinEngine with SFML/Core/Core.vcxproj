@@ -20,6 +20,7 @@
     <ClInclude Include="Clamp.h" />
     <ClInclude Include="ClassEventCallback.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="DrawableComponent.h" />
     <ClInclude Include="IResourceManager.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Event.h" />
@@ -42,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AliveComponent.cpp" />
+    <ClCompile Include="DrawableComponent.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="GameObject.cpp" />

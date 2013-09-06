@@ -1,5 +1,7 @@
 #include "RenderEngine.h"
 #include "../Core/Log.h"
+#include "../Core/DrawableComponent.h"
+#include "../Core/MapEntityComponent.h"
 #include <sstream>
 #include <Windows.h>
 #include <GL/GL.h>
@@ -9,7 +11,7 @@ namespace Goblin
 	RenderEngine::RenderEngine(IResourceManager& resources, Scene& scene, Player::PlayerId player)
 		: _scene(scene), 
 		  _player(player),
-		  _viewport(400, 0, 1000, 1000),
+		  _viewport(2000, 1000, 1000, 1000),
 		  _mapNeedsRendering(true),
 		  _mapFinishedRendering(false),
 		  _mapTextures(NULL),
@@ -162,6 +164,7 @@ namespace Goblin
 		}
 
 		if (_mapFinishedRendering)
+		{
 			for (unsigned y = 0; y < _mapTextures->getHeight(); y++)
 				for (unsigned x = 0; x < _mapTextures->getWidth(); x++)
 				{
@@ -169,6 +172,19 @@ namespace Goblin
 					spr.setPosition(static_cast<float>(x * _mapTextureSize) - _viewport.left, static_cast<float>(y * _mapTextureSize) - _viewport.top);
 					target.draw(spr);
 				}
+		}
 		// Todo: draw only visible cells
+
+		for (auto it = _scene.objects().begin(); it != _scene.objects().end(); it++)
+		{
+			GameObject& obj = **it;
+			DrawableComponent* draw = obj.tryGetComponent<DrawableComponent>();
+			MapEntityComponent* mapentity = obj.tryGetComponent<MapEntityComponent>();
+
+			if (draw != NULL && mapentity != NULL)
+			{
+				// todo... draw texture
+			}
+		}
 	}
 }
